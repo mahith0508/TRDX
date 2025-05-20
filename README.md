@@ -11,7 +11,7 @@ We are collecting a list of resources papers, softwares, books, articles for fin
 <!-- omit in toc -->
 ### What will you find here?
 
-- [97 libraries and packages](#libraries-and-packages) for research and live trading
+- [98 libraries and packages](#libraries-and-packages) for research and live trading
 - [40+ strategies](#strategies) described by institutionals and academics
 - [55 books](#books) for beginners and professionals
 - [23 videos](#videos) and interviews
@@ -81,7 +81,7 @@ We are collecting a list of resources papers, softwares, books, articles for fin
 
 # Libraries and packages
 
-*List of **97 libraries and packages** implementing trading bots, backtesters, indicators, pricers, etc. Each library is categorized by its programming language and ordered by descending populatrity (number of stars).*
+*List of **98 libraries and packages** implementing trading bots, backtesters, indicators, pricers, etc. Each library is categorized by its programming language and ordered by descending populatrity (number of stars).*
 
 
 ## Backtesting and Live Trading
@@ -116,6 +116,7 @@ We are collecting a list of resources papers, softwares, books, articles for fin
 
 | Repository | Description | Stars | Made with |
 |------------|-------------|-------|-----------|
+| [QTradeX](https://github.com/squidKid-deluxe/QTradeX-Algo-Trading-SDK) | A powerful and flexible Python framework for designing, backtesting, optimizing, and deploying algotrading bots | ![GitHub stars](https://badgen.net/github/stars/squidKid-deluxe/QTradeX-Algo-Trading-SDK) | ![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg) |
 | [vectorbt](https://github.com/polakowo/vectorbt) | vectorbt takes a novel approach to backtesting: it operates entirely on pandas and NumPy objects, and is accelerated by Numba to analyze any data at speed and scale. This allows for testing of many thousands of strategies in seconds. | ![GitHub stars](https://badgen.net/github/stars/polakowo/vectorbt) | ![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg) |
 | [pysystemtrade](https://github.com/robcarver17/pysystemtrade) | Systematic Trading in python from book Systematic Trading by Rob Carver | ![GitHub stars](https://badgen.net/github/stars/robcarver17/pysystemtrade) | ![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg) |
 | [bt](https://github.com/pmorissette/bt) | Flexible backtesting for Python based on Algo and Strategy Tree | ![GitHub stars](https://badgen.net/github/stars/pmorissette/bt) | ![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg) |
