@@ -35,9 +35,9 @@ class StrategyManager:
         self._initialize_strategies()
         
         # Signal combination parameters
-        self.signal_combination_method = config.strategy.get('signal_combination_method', 'weighted_average')
-        self.max_signals_per_strategy = config.strategy.get('max_signals_per_strategy', 5)
-        self.signal_decay_factor = config.strategy.get('signal_decay_factor', 0.1)
+        self.signal_combination_method = config.strategy.signal_combination_method
+        self.max_signals_per_strategy = config.strategy.max_signals_per_strategy
+        self.signal_decay_factor = config.strategy.signal_decay_factor
         
         logger.info(f"Strategy Manager initialized with {len(self.strategies)} strategies")
     
