@@ -117,19 +117,24 @@ class StrategyManager:
             except Exception as e:
                 logger.error(f"Error generating signals for strategy {strategy_name}: {str(e)}")
         
-        # Combine and filter signals
-        combined_signals = self._combine_signals(strategy_signals)
+        # Check if trading individual signals or combined
+        if self.config.strategy.trade_individual_signals:
+            # Return all individual signals without combining
+            final_signals = all_signals
+            logger.info(f"Trading individual signals: {len(final_signals)} signals (NO COMBINATION)")
+        else:
+            # Combine and filter signals
+            final_signals = self._combine_signals(strategy_signals)
+            logger.info(f"Generated {len(final_signals)} combined signals from {len(all_signals)} total signals")
         
         # Store signal history
         self.signal_history.append({
             'timestamp': datetime.now(),
             'strategy_signals': strategy_signals,
-            'combined_signals': combined_signals
+            'combined_signals': final_signals
         })
         
-        logger.info(f"Generated {len(combined_signals)} combined signals from {len(all_signals)} total signals")
-        
-        return combined_signals
+        return final_signals
     
     def _combine_signals(self, strategy_signals: Dict[str, List[Signal]]) -> List[Signal]:
         """Combine signals from different strategies"""

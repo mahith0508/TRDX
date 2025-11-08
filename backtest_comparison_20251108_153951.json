@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-11-08T15:39:51.496047",
+  "individual_signals": {
+    "mode": "individual_signals",
+    "start_date": "2020-01-01",
+    "end_date": "2023-12-31",
+    "initial_capital": 100000.0,
+    "final_portfolio_value": 73594.06257143023,
+    "total_return": -0.2640593742856977,
+    "total_return_pct": "-26.41%",
+    "total_trades": 17,
+    "sharpe_ratio": -0.9654714851535361,
+    "max_drawdown": 0.27573091278545353,
+    "max_drawdown_pct": "27.57%",
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "num_positions": 0,
+    "timestamp": "2025-11-08T15:39:51.495965",
+    "strategy_performance": {
+      "momentum": {
+        "total_signals": 0,
+        "success_rate": 0.0,
+        "total_return": 0.0,
+        "sharpe_ratio": 0.0,
+        "max_drawdown": 0.0,
+        "weight": 0.16666666666666666,
+        "last_updated": 

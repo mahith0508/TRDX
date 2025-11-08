@@ -70,6 +70,9 @@ class StrategyConfig(BaseModel):
     max_signals_per_strategy: int = 5
     signal_decay_factor: float = 0.1
     
+    # Individual signals trading (if False, uses signal combination)
+    trade_individual_signals: bool = False
+    
     # Strategy parameters
     momentum: Dict[str, Any] = {
         "lookback_period": 20,
