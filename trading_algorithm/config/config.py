@@ -65,6 +65,11 @@ class StrategyConfig(BaseModel):
         "pairs_trading"
     ]
     
+    # Signal combination settings
+    signal_combination_method: str = "weighted_average"
+    max_signals_per_strategy: int = 5
+    signal_decay_factor: float = 0.1
+    
     # Strategy parameters
     momentum: Dict[str, Any] = {
         "lookback_period": 20,

@@ -72,8 +72,9 @@ class YahooDataProvider(DataProvider):
                 df = ticker.history(start=start_date, end=end_date, interval=interval)
                 
                 if not df.empty:
-                    # Clean and standardize data
-                    df = df.drop(columns=['Dividends', 'Stock Splits'], errors='ignore')
+                    # Clean and standardize data - keep only expected columns
+                    expected_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
+                    df = df[expected_columns]
                     df.columns = [col.lower() for col in df.columns]
                     df.index.name = 'date'
                     df = df.dropna()
@@ -203,6 +204,10 @@ class DataCache:
         df.reset_index(inplace=True)
         df['date'] = df['date'].dt.strftime('%Y-%m-%d')
         df['created_at'] = datetime.now().isoformat()
+        
+        # Keep only columns that exist in the database schema
+        db_columns = ['symbol', 'date', 'open', 'high', 'low', 'close', 'volume', 'returns', 'log_returns', 'created_at']
+        df = df[db_columns]
         
         # Insert data (replace if exists)
         df.to_sql('market_data', conn, if_exists='append', index=False)
