@@ -53,20 +53,24 @@ class PairsTradingStrategy(BaseStrategy):
         """Calculate pairs trading signals for all symbols"""
         signals = []
         
-        # Update pairs if needed
-        if self._should_update_pairs(data):
-            self._update_pairs(data)
+        try:
+            # Update pairs if needed
+            if self._should_update_pairs(data):
+                self._update_pairs(data)
+            
+            # Generate signals for active pairs
+            for pair_name, pair_data in self.pairs_data.items():
+                if pair_name in self.active_pairs:
+                    pair_signals = self._calculate_pair_signals(pair_name, pair_data, data)
+                    signals.extend(pair_signals)
+            
+            # Sort signals by strength (strongest first)
+            signals.sort(key=lambda x: x.strength, reverse=True)
+            
+            logger.info(f"Generated {len(signals)} pairs trading signals from {len(self.active_pairs)} active pairs")
+        except Exception as e:
+            logger.error(f"Error in calculate_signals: {str(e)}", exc_info=True)
         
-        # Generate signals for active pairs
-        for pair_name, pair_data in self.pairs_data.items():
-            if pair_name in self.active_pairs:
-                pair_signals = self._calculate_pair_signals(pair_name, pair_data, data)
-                signals.extend(pair_signals)
-        
-        # Sort signals by strength (strongest first)
-        signals.sort(key=lambda x: x.strength, reverse=True)
-        
-        logger.info(f"Generated {len(signals)} pairs trading signals from {len(self.active_pairs)} active pairs")
         return signals
     
     def _should_update_pairs(self, data: Dict[str, pd.DataFrame]) -> bool:
@@ -137,10 +141,10 @@ class PairsTradingStrategy(BaseStrategy):
             return {'correlation': 0, 'cointegration': 0, 'spread_std': 0}
         
         # Calculate correlation
-        correlation = aligned_data[f'{symbol1}_1'].corr(aligned_data[f'{symbol2}_2'])
+        correlation = aligned_data['close_1'].corr(aligned_data['close_2'])
         
         # Calculate spread
-        spread = aligned_data[f'{symbol1}_1'] - aligned_data[f'{symbol2}_2']
+        spread = aligned_data['close_1'] - aligned_data['close_2']
         spread_mean = spread.mean()
         spread_std = spread.std()
         
@@ -166,11 +170,12 @@ class PairsTradingStrategy(BaseStrategy):
     def _calculate_cointegration_score(self, aligned_data: pd.DataFrame) -> float:
         """Calculate simplified cointegration score"""
         # Simplified cointegration test using spread stationarity
-        symbol1_col = aligned_data.columns[0]
-        symbol2_col = aligned_data.columns[1]
+        # Use close_1 and close_2 columns
+        col1 = aligned_data.columns[0]
+        col2 = aligned_data.columns[1]
         
         # Calculate spread
-        spread = aligned_data[symbol1_col] - aligned_data[symbol2_col]
+        spread = aligned_data[col1] - aligned_data[col2]
         
         # Test for mean reversion using autocorrelation
         if len(spread) > 1:
@@ -395,8 +400,8 @@ class PairsTradingStrategy(BaseStrategy):
         if len(aligned_data) < self.spread_window:
             return {'current_spread': 0, 'z_score': None}
         
-        # Calculate spread
-        spread = aligned_data.iloc[:, 0] - aligned_data.iloc[:, 1]
+        # Calculate spread using the close_1 and close_2 columns
+        spread = aligned_data['close_1'] - aligned_data['close_2']
         
         # Calculate rolling statistics
         spread_mean = spread.rolling(window=self.spread_window).mean()
