@@ -157,6 +157,9 @@ class StrategyManager:
                     combined_signals[symbol] = {
                         'buy_strength': 0.0,
                         'sell_strength': 0.0,
+                        'unweighted_buy_strength': 0.0,
+                        'unweighted_sell_strength': 0.0,
+                        'signal_count': 0,
                         'signals': []
                     }
                 
@@ -165,9 +168,12 @@ class StrategyManager:
                 
                 if signal.action == 'buy':
                     combined_signals[symbol]['buy_strength'] += weighted_strength
+                    combined_signals[symbol]['unweighted_buy_strength'] += signal.strength
                 elif signal.action == 'sell':
                     combined_signals[symbol]['sell_strength'] += weighted_strength
+                    combined_signals[symbol]['unweighted_sell_strength'] += signal.strength
                 
+                combined_signals[symbol]['signal_count'] += 1
                 combined_signals[symbol]['signals'].append(signal)
         
         # Create final signals
@@ -175,15 +181,22 @@ class StrategyManager:
         for symbol, data in combined_signals.items():
             buy_strength = data['buy_strength']
             sell_strength = data['sell_strength']
+            unweighted_buy = data['unweighted_buy_strength']
+            unweighted_sell = data['unweighted_sell_strength']
+            signal_count = data['signal_count']
             signals = data['signals']
             
-            # Determine final action
-            if buy_strength > sell_strength and buy_strength > 0.5:
+            # Use average strength for threshold comparison (not weighted sum)
+            avg_buy_strength = unweighted_buy / signal_count if signal_count > 0 else 0
+            avg_sell_strength = unweighted_sell / signal_count if signal_count > 0 else 0
+            
+            # Determine final action based on weighted strength but threshold on average
+            if buy_strength > sell_strength and avg_buy_strength > 0.3:  # Lower threshold for average
                 action = 'buy'
-                final_strength = buy_strength
-            elif sell_strength > buy_strength and sell_strength > 0.5:
+                final_strength = avg_buy_strength  # Use average for final strength
+            elif sell_strength > buy_strength and avg_sell_strength > 0.3:
                 action = 'sell'
-                final_strength = sell_strength
+                final_strength = avg_sell_strength
             else:
                 continue  # No strong signal
             
