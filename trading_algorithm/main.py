@@ -4,15 +4,19 @@ Main entry point for the trading algorithm
 import argparse
 import logging
 import sys
-import os
 from datetime import datetime
 from pathlib import Path
 
-# Add the current directory to path
-sys.path.append(str(Path(__file__).parent))
+import pandas as pd
 
-from config.config import config
-from engine.trading_engine import TradingEngine
+# Ensure the project root is available when executed directly
+PACKAGE_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = PACKAGE_ROOT.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from trading_algorithm.config.config import config
+from trading_algorithm.engine.trading_engine import TradingEngine
 
 def setup_logging(log_level: str = "INFO"):
     """Setup logging configuration"""
