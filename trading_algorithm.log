@@ -1,107 +1,303 @@
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.base_strategy - INFO - Initialized Momentum strategy with config: {'lookback_period': 20, 'threshold': 0.02, 'min_volume': 1000000}
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.momentum_strategy - INFO - Initialized Momentum Strategy with lookback: 20, threshold: 0.02
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: momentum
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.base_strategy - INFO - Initialized Mean Reversion strategy with config: {'lookback_period': 20, 'z_score_threshold': 2.0, 'min_volume': 1000000}
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Initialized Mean Reversion Strategy with lookback: 20, z-score threshold: 2.0
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: mean_reversion
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.base_strategy - INFO - Initialized RSI strategy with config: {'period': 14, 'overbought': 70, 'oversold': 30, 'min_volume': 1000000}
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.rsi_strategy - INFO - Initialized RSI Strategy with period: 14, overbought: 70, oversold: 30
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: rsi_strategy
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.base_strategy - INFO - Initialized Moving Average Crossover strategy with config: {'fast_ma': 10, 'slow_ma': 30, 'min_volume': 1000000}
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.moving_average_strategy - INFO - Initialized MA Crossover Strategy with fast: 10, slow: 30
-2025-11-08 14:26:09,151 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: moving_average_crossover
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.base_strategy - INFO - Initialized Bollinger Bands strategy with config: {'period': 20, 'std_dev': 2.0, 'min_volume': 1000000}
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Initialized Bollinger Bands Strategy with period: 20, std_dev: 2.0
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: bollinger_bands
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.base_strategy - INFO - Initialized Pairs Trading strategy with config: {'lookback_period': 60, 'z_score_threshold': 2.0, 'correlation_threshold': 0.8, 'min_volume': 1000000}
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Initialized Pairs Trading Strategy with correlation threshold: 0.8
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: pairs_trading
-2025-11-08 14:26:09,152 - trading_algorithm.strategies.strategy_manager - INFO - Strategy Manager initialized with 6 strategies
-2025-11-08 14:26:09,152 - trading_algorithm.engine.trading_engine - INFO - Trading Engine initialized in paper mode
-2025-11-08 14:26:09,152 - trading_algorithm.engine.trading_engine - INFO - Fetching historical data for initialization...
-2025-11-08 14:26:09,162 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
-2025-11-08 14:26:09,168 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
-2025-11-08 14:26:09,173 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
-2025-11-08 14:26:09,179 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
-2025-11-08 14:26:09,184 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
-2025-11-08 14:26:09,189 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
-2025-11-08 14:26:09,195 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
-2025-11-08 14:26:09,200 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
-2025-11-08 14:26:09,205 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
-2025-11-08 14:26:09,210 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
-2025-11-08 14:26:09,215 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
-2025-11-08 14:26:09,220 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
-2025-11-08 14:26:09,225 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
-2025-11-08 14:26:09,231 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
-2025-11-08 14:26:09,236 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
-2025-11-08 14:26:09,241 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
-2025-11-08 14:26:09,392 - trading_algorithm.engine.trading_engine - INFO - Initializing strategies...
-2025-11-08 14:26:09,400 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,401 - trading_algorithm.strategies.base_strategy - INFO - Strategy Momentum initialized successfully
-2025-11-08 14:26:09,401 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy momentum with 16 symbols
-2025-11-08 14:26:09,403 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,404 - trading_algorithm.strategies.base_strategy - INFO - Strategy Mean Reversion initialized successfully
-2025-11-08 14:26:09,404 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy mean_reversion with 16 symbols
-2025-11-08 14:26:09,406 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,407 - trading_algorithm.strategies.base_strategy - INFO - Strategy RSI initialized successfully
-2025-11-08 14:26:09,407 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy rsi_strategy with 16 symbols
-2025-11-08 14:26:09,410 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,411 - trading_algorithm.strategies.base_strategy - INFO - Strategy Moving Average Crossover initialized successfully
-2025-11-08 14:26:09,412 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy moving_average_crossover with 16 symbols
-2025-11-08 14:26:09,414 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,414 - trading_algorithm.strategies.base_strategy - INFO - Strategy Bollinger Bands initialized successfully
-2025-11-08 14:26:09,414 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy bollinger_bands with 16 symbols
-2025-11-08 14:26:09,417 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,417 - trading_algorithm.strategies.base_strategy - INFO - Strategy Pairs Trading initialized successfully
-2025-11-08 14:26:09,417 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy pairs_trading with 16 symbols
-2025-11-08 14:26:09,418 - trading_algorithm.engine.trading_engine - INFO - Portfolio initialized with $50,000.00
-2025-11-08 14:26:09,418 - trading_algorithm.engine.trading_engine - INFO - Trading engine initialized successfully
-2025-11-08 14:26:09,419 - trading_algorithm.engine.trading_engine - INFO - Trading engine started in paper mode
-2025-11-08 14:26:09,424 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
-2025-11-08 14:26:09,430 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
-2025-11-08 14:26:09,435 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
-2025-11-08 14:26:09,439 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
-2025-11-08 14:26:09,443 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
-2025-11-08 14:26:09,448 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
-2025-11-08 14:26:09,452 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
-2025-11-08 14:26:09,456 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
-2025-11-08 14:26:09,461 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
-2025-11-08 14:26:09,466 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
-2025-11-08 14:26:09,471 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
-2025-11-08 14:26:09,476 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
-2025-11-08 14:26:09,480 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
-2025-11-08 14:26:09,485 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
-2025-11-08 14:26:09,490 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
-2025-11-08 14:26:09,498 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
-2025-11-08 14:26:09,643 - trading_algorithm.engine.trading_engine - INFO - Processing trading day: 2025-11-08
-2025-11-08 14:26:09,647 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,651 - trading_algorithm.strategies.momentum_strategy - INFO - Generated 5 momentum signals
-2025-11-08 14:26:09,652 - trading_algorithm.strategies.strategy_manager - INFO - Strategy momentum generated 5 signals
-2025-11-08 14:26:09,654 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,661 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Generated 1 mean reversion signals
-2025-11-08 14:26:09,661 - trading_algorithm.strategies.strategy_manager - INFO - Strategy mean_reversion generated 1 signals
-2025-11-08 14:26:09,664 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,690 - trading_algorithm.strategies.rsi_strategy - INFO - Generated 0 RSI signals
-2025-11-08 14:26:09,690 - trading_algorithm.strategies.strategy_manager - INFO - Strategy rsi_strategy generated 0 signals
-2025-11-08 14:26:09,693 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,693 - trading_algorithm.strategies.moving_average_strategy - INFO - Generated 0 MA crossover signals
-2025-11-08 14:26:09,693 - trading_algorithm.strategies.strategy_manager - INFO - Strategy moving_average_crossover generated 0 signals
-2025-11-08 14:26:09,696 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,704 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Generated 5 Bollinger Bands signals
-2025-11-08 14:26:09,704 - trading_algorithm.strategies.strategy_manager - INFO - Strategy bollinger_bands generated 5 signals
-2025-11-08 14:26:09,707 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
-2025-11-08 14:26:09,707 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updating pairs data...
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_SPY with score 0.724
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_QQQ with score 0.708
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair TLT_EEM with score 0.672
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_DIA with score 0.661
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_DIA with score 0.645
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair IWM_EEM with score 0.643
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_EEM with score 0.630
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair QQQ_DIA with score 0.630
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair GOOGL_QQQ with score 0.629
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_QQQ with score 0.629
-2025-11-08 14:26:09,989 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updated to 10 active pairs
-2025-11-08 14:26:09,997 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Generated 0 pairs trading signals from 10 active pairs
-2025-11-08 14:26:09,998 - trading_algorithm.strategies.strategy_manager - INFO - Strategy pairs_trading generated 0 signals
-2025-11-08 14:26:09,998 - trading_algorithm.strategies.strategy_manager - INFO - Generated 0 combined signals from 11 total signals
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized Momentum strategy with config: {'lookback_period': 20, 'threshold': 0.02, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.momentum_strategy - INFO - Initialized Momentum Strategy with lookback: 20, threshold: 0.02
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: momentum
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized Mean Reversion strategy with config: {'lookback_period': 20, 'z_score_threshold': 2.0, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Initialized Mean Reversion Strategy with lookback: 20, z-score threshold: 2.0
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: mean_reversion
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized RSI strategy with config: {'period': 14, 'overbought': 70, 'oversold': 30, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.rsi_strategy - INFO - Initialized RSI Strategy with period: 14, overbought: 70, oversold: 30
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: rsi_strategy
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized Moving Average Crossover strategy with config: {'fast_ma': 10, 'slow_ma': 30, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.moving_average_strategy - INFO - Initialized MA Crossover Strategy with fast: 10, slow: 30
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: moving_average_crossover
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized Bollinger Bands strategy with config: {'period': 20, 'std_dev': 2.0, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Initialized Bollinger Bands Strategy with period: 20, std_dev: 2.0
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: bollinger_bands
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.base_strategy - INFO - Initialized Pairs Trading strategy with config: {'lookback_period': 60, 'z_score_threshold': 2.0, 'correlation_threshold': 0.8, 'min_volume': 1000000}
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Initialized Pairs Trading Strategy with correlation threshold: 0.8
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: pairs_trading
+2025-11-08 14:35:56,320 - trading_algorithm.strategies.strategy_manager - INFO - Strategy Manager initialized with 6 strategies
+2025-11-08 14:35:56,320 - trading_algorithm.engine.trading_engine - INFO - Trading Engine initialized in analysis mode
+2025-11-08 14:35:56,320 - trading_algorithm.engine.trading_engine - INFO - Fetching historical data for initialization...
+2025-11-08 14:35:56,329 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
+2025-11-08 14:35:56,334 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
+2025-11-08 14:35:56,338 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
+2025-11-08 14:35:56,343 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
+2025-11-08 14:35:56,348 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
+2025-11-08 14:35:56,352 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
+2025-11-08 14:35:56,357 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
+2025-11-08 14:35:56,361 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
+2025-11-08 14:35:56,365 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
+2025-11-08 14:35:56,370 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
+2025-11-08 14:35:56,374 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
+2025-11-08 14:35:56,378 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
+2025-11-08 14:35:56,383 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
+2025-11-08 14:35:56,387 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
+2025-11-08 14:35:56,391 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
+2025-11-08 14:35:56,396 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
+2025-11-08 14:35:56,491 - trading_algorithm.engine.trading_engine - INFO - Initializing strategies...
+2025-11-08 14:35:56,494 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,495 - trading_algorithm.strategies.base_strategy - INFO - Strategy Momentum initialized successfully
+2025-11-08 14:35:56,495 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy momentum with 16 symbols
+2025-11-08 14:35:56,496 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,497 - trading_algorithm.strategies.base_strategy - INFO - Strategy Mean Reversion initialized successfully
+2025-11-08 14:35:56,497 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy mean_reversion with 16 symbols
+2025-11-08 14:35:56,498 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,499 - trading_algorithm.strategies.base_strategy - INFO - Strategy RSI initialized successfully
+2025-11-08 14:35:56,499 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy rsi_strategy with 16 symbols
+2025-11-08 14:35:56,500 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,501 - trading_algorithm.strategies.base_strategy - INFO - Strategy Moving Average Crossover initialized successfully
+2025-11-08 14:35:56,501 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy moving_average_crossover with 16 symbols
+2025-11-08 14:35:56,502 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,503 - trading_algorithm.strategies.base_strategy - INFO - Strategy Bollinger Bands initialized successfully
+2025-11-08 14:35:56,503 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy bollinger_bands with 16 symbols
+2025-11-08 14:35:56,504 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:35:56,505 - trading_algorithm.strategies.base_strategy - INFO - Strategy Pairs Trading initialized successfully
+2025-11-08 14:35:56,505 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy pairs_trading with 16 symbols
+2025-11-08 14:35:56,505 - trading_algorithm.engine.trading_engine - INFO - Portfolio initialized with $100,000.00
+2025-11-08 14:35:56,505 - trading_algorithm.engine.trading_engine - INFO - Trading engine initialized successfully
+2025-11-08 14:35:56,509 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
+2025-11-08 14:35:56,512 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
+2025-11-08 14:35:56,516 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
+2025-11-08 14:35:56,518 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
+2025-11-08 14:35:56,522 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
+2025-11-08 14:35:56,526 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
+2025-11-08 14:35:56,529 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
+2025-11-08 14:35:56,534 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
+2025-11-08 14:35:56,538 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
+2025-11-08 14:35:56,542 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
+2025-11-08 14:35:56,546 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
+2025-11-08 14:35:56,550 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
+2025-11-08 14:35:56,554 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
+2025-11-08 14:35:56,557 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
+2025-11-08 14:35:56,561 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
+2025-11-08 14:35:56,564 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
+2025-11-08 14:35:56,663 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,666 - trading_algorithm.strategies.momentum_strategy - INFO - Generated 0 momentum signals
+2025-11-08 14:35:56,666 - trading_algorithm.strategies.strategy_manager - INFO - Strategy momentum generated 0 signals
+2025-11-08 14:35:56,667 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,668 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Generated 0 mean reversion signals
+2025-11-08 14:35:56,668 - trading_algorithm.strategies.strategy_manager - INFO - Strategy mean_reversion generated 0 signals
+2025-11-08 14:35:56,669 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,669 - trading_algorithm.strategies.rsi_strategy - INFO - Generated 0 RSI signals
+2025-11-08 14:35:56,669 - trading_algorithm.strategies.strategy_manager - INFO - Strategy rsi_strategy generated 0 signals
+2025-11-08 14:35:56,670 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,670 - trading_algorithm.strategies.moving_average_strategy - INFO - Generated 0 MA crossover signals
+2025-11-08 14:35:56,670 - trading_algorithm.strategies.strategy_manager - INFO - Strategy moving_average_crossover generated 0 signals
+2025-11-08 14:35:56,672 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,672 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Generated 0 Bollinger Bands signals
+2025-11-08 14:35:56,672 - trading_algorithm.strategies.strategy_manager - INFO - Strategy bollinger_bands generated 0 signals
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 15 symbols
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updating pairs data...
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updated to 0 active pairs
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Generated 0 pairs trading signals from 0 active pairs
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.strategy_manager - INFO - Strategy pairs_trading generated 0 signals
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.strategy_manager - INFO - Generated 0 combined signals from 0 total signals
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.strategy_manager - ERROR - Error getting analysis for strategy rsi_strategy: RSIStrategy.get_rsi_analysis() missing 1 required positional argument: 'df'
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.strategy_manager - ERROR - Error getting analysis for strategy moving_average_crossover: MovingAverageCrossoverStrategy.get_ma_analysis() missing 1 required positional argument: 'df'
+2025-11-08 14:35:56,673 - trading_algorithm.strategies.strategy_manager - ERROR - Error getting analysis for strategy bollinger_bands: BollingerBandsStrategy.get_bb_analysis() missing 1 required positional argument: 'df'
+2025-11-08 14:36:28,947 - trading_algorithm.strategies.base_strategy - INFO - Initialized Momentum strategy with config: {'lookback_period': 20, 'threshold': 0.02, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.momentum_strategy - INFO - Initialized Momentum Strategy with lookback: 20, threshold: 0.02
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: momentum
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.base_strategy - INFO - Initialized Mean Reversion strategy with config: {'lookback_period': 20, 'z_score_threshold': 2.0, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Initialized Mean Reversion Strategy with lookback: 20, z-score threshold: 2.0
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: mean_reversion
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.base_strategy - INFO - Initialized RSI strategy with config: {'period': 14, 'overbought': 70, 'oversold': 30, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.rsi_strategy - INFO - Initialized RSI Strategy with period: 14, overbought: 70, oversold: 30
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: rsi_strategy
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.base_strategy - INFO - Initialized Moving Average Crossover strategy with config: {'fast_ma': 10, 'slow_ma': 30, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.moving_average_strategy - INFO - Initialized MA Crossover Strategy with fast: 10, slow: 30
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: moving_average_crossover
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.base_strategy - INFO - Initialized Bollinger Bands strategy with config: {'period': 20, 'std_dev': 2.0, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Initialized Bollinger Bands Strategy with period: 20, std_dev: 2.0
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: bollinger_bands
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.base_strategy - INFO - Initialized Pairs Trading strategy with config: {'lookback_period': 60, 'z_score_threshold': 2.0, 'correlation_threshold': 0.8, 'min_volume': 1000000}
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Initialized Pairs Trading Strategy with correlation threshold: 0.8
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: pairs_trading
+2025-11-08 14:36:28,948 - trading_algorithm.strategies.strategy_manager - INFO - Strategy Manager initialized with 6 strategies
+2025-11-08 14:36:28,948 - trading_algorithm.engine.trading_engine - INFO - Trading Engine initialized in backtest mode
+2025-11-08 14:36:28,948 - trading_algorithm.engine.trading_engine - INFO - Fetching historical data for initialization...
+2025-11-08 14:36:28,958 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
+2025-11-08 14:36:28,963 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
+2025-11-08 14:36:28,967 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
+2025-11-08 14:36:28,972 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
+2025-11-08 14:36:28,976 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
+2025-11-08 14:36:28,980 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
+2025-11-08 14:36:28,984 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
+2025-11-08 14:36:28,989 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
+2025-11-08 14:36:28,992 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
+2025-11-08 14:36:28,996 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
+2025-11-08 14:36:29,001 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
+2025-11-08 14:36:29,005 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
+2025-11-08 14:36:29,010 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
+2025-11-08 14:36:29,015 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
+2025-11-08 14:36:29,019 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
+2025-11-08 14:36:29,023 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
+2025-11-08 14:36:29,125 - trading_algorithm.engine.trading_engine - INFO - Initializing strategies...
+2025-11-08 14:36:29,129 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,130 - trading_algorithm.strategies.base_strategy - INFO - Strategy Momentum initialized successfully
+2025-11-08 14:36:29,130 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy momentum with 16 symbols
+2025-11-08 14:36:29,131 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,132 - trading_algorithm.strategies.base_strategy - INFO - Strategy Mean Reversion initialized successfully
+2025-11-08 14:36:29,132 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy mean_reversion with 16 symbols
+2025-11-08 14:36:29,133 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,135 - trading_algorithm.strategies.base_strategy - INFO - Strategy RSI initialized successfully
+2025-11-08 14:36:29,136 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy rsi_strategy with 16 symbols
+2025-11-08 14:36:29,138 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,139 - trading_algorithm.strategies.base_strategy - INFO - Strategy Moving Average Crossover initialized successfully
+2025-11-08 14:36:29,139 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy moving_average_crossover with 16 symbols
+2025-11-08 14:36:29,140 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,141 - trading_algorithm.strategies.base_strategy - INFO - Strategy Bollinger Bands initialized successfully
+2025-11-08 14:36:29,141 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy bollinger_bands with 16 symbols
+2025-11-08 14:36:29,142 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:36:29,143 - trading_algorithm.strategies.base_strategy - INFO - Strategy Pairs Trading initialized successfully
+2025-11-08 14:36:29,143 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy pairs_trading with 16 symbols
+2025-11-08 14:36:29,143 - trading_algorithm.engine.trading_engine - INFO - Portfolio initialized with $100,000.00
+2025-11-08 14:36:29,143 - trading_algorithm.engine.trading_engine - INFO - Trading engine initialized successfully
+2025-11-08 14:36:29,143 - trading_algorithm.engine.trading_engine - INFO - Starting backtest...
+2025-11-08 14:36:30,278 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for AAPL
+2025-11-08 14:36:30,368 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for GOOGL
+2025-11-08 14:36:30,514 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for MSFT
+2025-11-08 14:36:30,633 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for TSLA
+2025-11-08 14:36:30,821 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for AMZN
+2025-11-08 14:36:31,021 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for META
+2025-11-08 14:36:31,165 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for NVDA
+2025-11-08 14:36:31,262 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for NFLX
+2025-11-08 14:36:31,479 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for SPY
+2025-11-08 14:36:31,626 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for QQQ
+2025-11-08 14:36:31,804 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for IWM
+2025-11-08 14:36:32,070 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for DIA
+2025-11-08 14:36:32,212 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for GLD
+2025-11-08 14:36:32,417 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for TLT
+2025-11-08 14:36:32,628 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for VXX
+2025-11-08 14:36:32,800 - trading_algorithm.data.data_manager - INFO - Successfully fetched 2 records for EEM
+2025-11-08 14:36:33,067 - trading_algorithm.engine.trading_engine - INFO - Processing trading day: 2024-11-01
+2025-11-08 14:36:33,067 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy momentum: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,067 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy mean_reversion: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,068 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy rsi_strategy: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,068 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy moving_average_crossover: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,068 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy bollinger_bands: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,068 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy pairs_trading: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,068 - trading_algorithm.strategies.strategy_manager - INFO - Generated 0 combined signals from 0 total signals
+2025-11-08 14:36:33,071 - trading_algorithm.engine.trading_engine - INFO - Processing trading day: 2024-11-04
+2025-11-08 14:36:33,071 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy momentum: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,072 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy mean_reversion: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,072 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy rsi_strategy: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,073 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy moving_average_crossover: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,073 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy bollinger_bands: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,074 - trading_algorithm.strategies.strategy_manager - ERROR - Error generating signals for strategy pairs_trading: Cannot subtract tz-naive and tz-aware datetime-like objects.
+2025-11-08 14:36:33,074 - trading_algorithm.strategies.strategy_manager - INFO - Generated 0 combined signals from 0 total signals
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Final Portfolio Value: $100,000.00
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Total Return: 0.00%
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Total Trades: 0
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Sharpe Ratio: 0.00
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Max Drawdown: 0.00%
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Backtest completed
+2025-11-08 14:36:33,075 - trading_algorithm.engine.trading_engine - INFO - Trading engine started in backtest mode
+2025-11-08 14:39:17,205 - trading_algorithm.strategies.base_strategy - INFO - Initialized Momentum strategy with config: {'lookback_period': 20, 'threshold': 0.02, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.momentum_strategy - INFO - Initialized Momentum Strategy with lookback: 20, threshold: 0.02
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: momentum
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.base_strategy - INFO - Initialized Mean Reversion strategy with config: {'lookback_period': 20, 'z_score_threshold': 2.0, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Initialized Mean Reversion Strategy with lookback: 20, z-score threshold: 2.0
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: mean_reversion
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.base_strategy - INFO - Initialized RSI strategy with config: {'period': 14, 'overbought': 70, 'oversold': 30, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.rsi_strategy - INFO - Initialized RSI Strategy with period: 14, overbought: 70, oversold: 30
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: rsi_strategy
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.base_strategy - INFO - Initialized Moving Average Crossover strategy with config: {'fast_ma': 10, 'slow_ma': 30, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.moving_average_strategy - INFO - Initialized MA Crossover Strategy with fast: 10, slow: 30
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: moving_average_crossover
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.base_strategy - INFO - Initialized Bollinger Bands strategy with config: {'period': 20, 'std_dev': 2.0, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Initialized Bollinger Bands Strategy with period: 20, std_dev: 2.0
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: bollinger_bands
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.base_strategy - INFO - Initialized Pairs Trading strategy with config: {'lookback_period': 60, 'z_score_threshold': 2.0, 'correlation_threshold': 0.8, 'min_volume': 1000000}
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Initialized Pairs Trading Strategy with correlation threshold: 0.8
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy: pairs_trading
+2025-11-08 14:39:17,206 - trading_algorithm.strategies.strategy_manager - INFO - Strategy Manager initialized with 6 strategies
+2025-11-08 14:39:17,206 - trading_algorithm.engine.trading_engine - INFO - Trading Engine initialized in paper mode
+2025-11-08 14:39:17,206 - trading_algorithm.engine.trading_engine - INFO - Fetching historical data for initialization...
+2025-11-08 14:39:17,214 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
+2025-11-08 14:39:17,218 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
+2025-11-08 14:39:17,222 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
+2025-11-08 14:39:17,226 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
+2025-11-08 14:39:17,229 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
+2025-11-08 14:39:17,233 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
+2025-11-08 14:39:17,237 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
+2025-11-08 14:39:17,241 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
+2025-11-08 14:39:17,245 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
+2025-11-08 14:39:17,248 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
+2025-11-08 14:39:17,252 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
+2025-11-08 14:39:17,256 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
+2025-11-08 14:39:17,260 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
+2025-11-08 14:39:17,263 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
+2025-11-08 14:39:17,267 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
+2025-11-08 14:39:17,271 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
+2025-11-08 14:39:17,362 - trading_algorithm.engine.trading_engine - INFO - Initializing strategies...
+2025-11-08 14:39:17,366 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,367 - trading_algorithm.strategies.base_strategy - INFO - Strategy Momentum initialized successfully
+2025-11-08 14:39:17,367 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy momentum with 16 symbols
+2025-11-08 14:39:17,368 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,369 - trading_algorithm.strategies.base_strategy - INFO - Strategy Mean Reversion initialized successfully
+2025-11-08 14:39:17,369 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy mean_reversion with 16 symbols
+2025-11-08 14:39:17,370 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,371 - trading_algorithm.strategies.base_strategy - INFO - Strategy RSI initialized successfully
+2025-11-08 14:39:17,371 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy rsi_strategy with 16 symbols
+2025-11-08 14:39:17,373 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,373 - trading_algorithm.strategies.base_strategy - INFO - Strategy Moving Average Crossover initialized successfully
+2025-11-08 14:39:17,373 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy moving_average_crossover with 16 symbols
+2025-11-08 14:39:17,375 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,375 - trading_algorithm.strategies.base_strategy - INFO - Strategy Bollinger Bands initialized successfully
+2025-11-08 14:39:17,375 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy bollinger_bands with 16 symbols
+2025-11-08 14:39:17,376 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,377 - trading_algorithm.strategies.base_strategy - INFO - Strategy Pairs Trading initialized successfully
+2025-11-08 14:39:17,377 - trading_algorithm.strategies.strategy_manager - INFO - Initialized strategy pairs_trading with 16 symbols
+2025-11-08 14:39:17,377 - trading_algorithm.engine.trading_engine - INFO - Portfolio initialized with $50,000.00
+2025-11-08 14:39:17,377 - trading_algorithm.engine.trading_engine - INFO - Trading engine initialized successfully
+2025-11-08 14:39:17,378 - trading_algorithm.engine.trading_engine - INFO - Trading engine started in paper mode
+2025-11-08 14:39:17,382 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AAPL
+2025-11-08 14:39:17,386 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GOOGL
+2025-11-08 14:39:17,390 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for MSFT
+2025-11-08 14:39:17,393 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TSLA
+2025-11-08 14:39:17,397 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for AMZN
+2025-11-08 14:39:17,401 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for META
+2025-11-08 14:39:17,404 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NVDA
+2025-11-08 14:39:17,408 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for NFLX
+2025-11-08 14:39:17,412 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for SPY
+2025-11-08 14:39:17,415 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for QQQ
+2025-11-08 14:39:17,418 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for IWM
+2025-11-08 14:39:17,422 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for DIA
+2025-11-08 14:39:17,425 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for GLD
+2025-11-08 14:39:17,429 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for TLT
+2025-11-08 14:39:17,432 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for VXX
+2025-11-08 14:39:17,435 - trading_algorithm.data.data_manager - INFO - Retrieved cached data for EEM
+2025-11-08 14:39:17,517 - trading_algorithm.engine.trading_engine - INFO - Processing trading day: 2025-11-08
+2025-11-08 14:39:17,519 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,522 - trading_algorithm.strategies.momentum_strategy - INFO - Generated 5 momentum signals
+2025-11-08 14:39:17,522 - trading_algorithm.strategies.strategy_manager - INFO - Strategy momentum generated 5 signals
+2025-11-08 14:39:17,524 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,528 - trading_algorithm.strategies.mean_reversion_strategy - INFO - Generated 1 mean reversion signals
+2025-11-08 14:39:17,528 - trading_algorithm.strategies.strategy_manager - INFO - Strategy mean_reversion generated 1 signals
+2025-11-08 14:39:17,530 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,545 - trading_algorithm.strategies.rsi_strategy - INFO - Generated 0 RSI signals
+2025-11-08 14:39:17,545 - trading_algorithm.strategies.strategy_manager - INFO - Strategy rsi_strategy generated 0 signals
+2025-11-08 14:39:17,547 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,547 - trading_algorithm.strategies.moving_average_strategy - INFO - Generated 0 MA crossover signals
+2025-11-08 14:39:17,547 - trading_algorithm.strategies.strategy_manager - INFO - Strategy moving_average_crossover generated 0 signals
+2025-11-08 14:39:17,549 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,554 - trading_algorithm.strategies.bollinger_bands_strategy - INFO - Generated 5 Bollinger Bands signals
+2025-11-08 14:39:17,554 - trading_algorithm.strategies.strategy_manager - INFO - Strategy bollinger_bands generated 5 signals
+2025-11-08 14:39:17,555 - trading_algorithm.strategies.base_strategy - INFO - Filtered universe from 16 to 16 symbols
+2025-11-08 14:39:17,555 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updating pairs data...
+2025-11-08 14:39:17,723 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_SPY with score 0.724
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_QQQ with score 0.708
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair TLT_EEM with score 0.672
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_DIA with score 0.661
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair AAPL_DIA with score 0.645
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair IWM_EEM with score 0.643
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_EEM with score 0.630
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair QQQ_DIA with score 0.630
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair GOOGL_QQQ with score 0.629
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Selected pair SPY_QQQ with score 0.629
+2025-11-08 14:39:17,724 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Updated to 10 active pairs
+2025-11-08 14:39:17,730 - trading_algorithm.strategies.pairs_trading_strategy - INFO - Generated 0 pairs trading signals from 10 active pairs
+2025-11-08 14:39:17,730 - trading_algorithm.strategies.strategy_manager - INFO - Strategy pairs_trading generated 0 signals
+2025-11-08 14:39:17,731 - trading_algorithm.strategies.strategy_manager - INFO - Generated 0 combined signals from 11 total signals
