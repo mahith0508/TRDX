@@ -253,6 +253,14 @@ class DataManager:
                 rate_limit=self.config.data.sources["yahoo"]["rate_limit"]
             )
         
+        # Add CSV provider as fallback
+        try:
+            from .csv_provider import CSVDataProvider
+            providers["csv"] = CSVDataProvider()
+            logger.info("CSV data provider initialized as fallback")
+        except ImportError as e:
+            logger.warning(f"Could not initialize CSV provider: {e}")
+        
         # Add other providers as needed
         # providers["alpaca"] = AlpacaDataProvider()
         # providers["ib"] = InteractiveBrokersDataProvider()
@@ -261,7 +269,7 @@ class DataManager:
     
     def get_data(self, symbols: List[str], start_date: str, end_date: str, 
                  interval: str = "1d", use_cache: bool = True) -> Dict[str, pd.DataFrame]:
-        """Get historical data for symbols"""
+        """Get historical data for symbols with CSV fallback"""
         if isinstance(symbols, str):
             symbols = [symbols]
         
@@ -280,15 +288,49 @@ class DataManager:
         else:
             symbols_to_fetch = symbols
         
-        # Fetch missing data
+        # Fetch missing data with fallback
         if symbols_to_fetch:
-            provider = self.providers[self.config.data.default_source]
-            new_data = provider.get_data(symbols_to_fetch, start_date, end_date, interval)
-            
-            # Cache new data
-            for symbol, df in new_data.items():
-                self.cache.cache_data(symbol, df)
-                data[symbol] = df
+            # Try primary provider first
+            try:
+                provider = self.providers[self.config.data.default_source]
+                logger.info(f"Fetching data for {symbols_to_fetch} from {self.config.data.default_source}")
+                new_data = provider.get_data(symbols_to_fetch, start_date, end_date, interval)
+                
+                # Cache new data
+                for symbol, df in new_data.items():
+                    self.cache.cache_data(symbol, df)
+                    data[symbol] = df
+                
+                # Check if any symbols failed
+                successful_symbols = set(new_data.keys())
+                failed_symbols = [s for s in symbols_to_fetch if s not in successful_symbols]
+                
+                # Try CSV fallback for failed symbols
+                if failed_symbols and "csv" in self.providers:
+                    logger.info(f"Trying CSV fallback for failed symbols: {failed_symbols}")
+                    csv_provider = self.providers["csv"]
+                    csv_data = csv_provider.get_data(failed_symbols, start_date, end_date, interval)
+                    
+                    for symbol, df in csv_data.items():
+                        self.cache.cache_data(symbol, df)
+                        data[symbol] = df
+                        logger.info(f"Successfully loaded {symbol} from CSV fallback")
+                        
+            except Exception as e:
+                logger.error(f"Primary data provider failed: {e}")
+                
+                # Try CSV provider as complete fallback
+                if "csv" in self.providers:
+                    logger.info(f"Using CSV provider as complete fallback for {symbols_to_fetch}")
+                    csv_provider = self.providers["csv"]
+                    csv_data = csv_provider.get_data(symbols_to_fetch, start_date, end_date, interval)
+                    
+                    for symbol, df in csv_data.items():
+                        self.cache.cache_data(symbol, df)
+                        data[symbol] = df
+                        logger.info(f"Successfully loaded {symbol} from CSV fallback")
+                else:
+                    logger.error("No CSV fallback available")
         
         return data
     
@@ -385,6 +427,36 @@ class DataManager:
         correlation_matrix = returns_df.corr(method=method)
         
         return correlation_matrix
+    
+    def save_data_to_csv(self, symbols: List[str], start_date: str, end_date: str, 
+                         directory: str = "csv_data"):
+        """
+        Save historical data to CSV files for offline use
+        
+        Args:
+            symbols: List of symbols to save
+            start_date: Start date for data
+            end_date: End date for data
+            directory: Directory to save CSV files
+        """
+        logger.info(f"Saving data for {len(symbols)} symbols to CSV files...")
+        
+        # Get data without indicators (raw price data)
+        data = self.get_data(symbols, start_date, end_date, use_cache=True)
+        
+        if "csv" in self.providers:
+            csv_provider = self.providers["csv"]
+            csv_provider.save_data_to_csv(data, directory)
+            logger.info(f"Successfully saved {len(data)} symbols to {directory}")
+        else:
+            logger.error("CSV provider not available")
+    
+    def list_csv_symbols(self) -> List[str]:
+        """List all symbols available in CSV files"""
+        if "csv" in self.providers:
+            csv_provider = self.providers["csv"]
+            return csv_provider.list_available_symbols()
+        return []
     
     def validate_data(self, data: Dict[str, pd.DataFrame]) -> Dict[str, pd.DataFrame]:
         """Validate and clean data"""
