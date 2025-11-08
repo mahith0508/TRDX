@@ -1,0 +1,3294 @@
+{
+  "config": {
+    "data": {
+      "default_source": "yahoo",
+      "sources": {
+        "yahoo": {
+          "enabled": true,
+          "rate_limit": 2000
+        },
+        "alpaca": {
+          "enabled": false,
+          "api_key": null,
+          "secret_key": null,
+          "base_url": "https://paper-api.alpaca.markets"
+        },
+        "interactive_brokers": {
+          "enabled": false,
+          "host": "127.0.0.1",
+          "port": 7497,
+          "client_id": 1
+        },
+        "binance": {
+          "enabled": false,
+          "api_key": null,
+          "secret_key": null,
+          "testnet": true
+        }
+      }
+    },
+    "trading": {
+      "mode": "backtest",
+      "initial_capital": 100000.0,
+      "max_positions": 10,
+      "position_size": 0.1,
+      "commission": 0.001,
+      "slippage": 0.001,
+      "max_portfolio_risk": 0.02,
+      "max_drawdown": 0.15,
+      "stop_loss": 0.05,
+      "take_profit": 0.1,
+      "rebalance_frequency": "daily"
+    },
+    "strategy": {
+      "enabled_strategies": [
+        "momentum",
+        "mean_reversion",
+        "rsi_strategy",
+        "moving_average_crossover",
+        "bollinger_bands",
+        "pairs_trading"
+      ],
+      "signal_combination_method": "weighted_average",
+      "max_signals_per_strategy": 5,
+      "signal_decay_factor": 0.1,
+      "momentum": {
+        "lookback_period": 20,
+        "threshold": 0.02,
+        "min_volume": 1000000
+      },
+      "mean_reversion": {
+        "lookback_period": 20,
+        "z_score_threshold": 2.0,
+        "min_volume": 1000000
+      },
+      "rsi_strategy": {
+        "period": 14,
+        "overbought": 70,
+        "oversold": 30,
+        "min_volume": 1000000
+      },
+      "moving_average_crossover": {
+        "fast_ma": 10,
+        "slow_ma": 30,
+        "min_volume": 1000000
+      },
+      "bollinger_bands": {
+        "period": 20,
+        "std_dev": 2.0,
+        "min_volume": 1000000
+      },
+      "pairs_trading": {
+        "lookback_period": 60,
+        "z_score_threshold": 2.0,
+        "correlation_threshold": 0.8,
+        "min_volume": 1000000
+      }
+    },
+    "backtest": {
+      "start_date": "2022-01-01",
+      "end_date": "2022-12-31",
+      "benchmark": "SPY",
+      "risk_free_rate": 0.02
+    },
+    "universe": [
+      "AAPL",
+      "GOOGL",
+      "MSFT",
+      "TSLA",
+      "AMZN",
+      "META",
+      "NVDA",
+      "NFLX",
+      "SPY",
+      "QQQ",
+      "IWM",
+      "DIA",
+      "GLD",
+      "TLT",
+      "VXX",
+      "EEM"
+    ],
+    "log_level": "INFO",
+    "log_file": "trading_algorithm.log",
+    "database_url": "sqlite:///trading_data.db",
+    "api_host": "0.0.0.0",
+    "api_port": 8000,
+    "enable_notifications": true,
+    "notification_channels": [
+      "console",
+      "file"
+    ],
+    "enable_performance_tracking": true,
+    "performance_update_frequency": 3600
+  },
+  "state": {
+    "mode": "backtest",
+    "is_running": true,
+    "last_update": "2022-12-30T00:00:00",
+    "portfolio_value": 89347.21332749171,
+    "cash": 80966.38031967921,
+    "positions": {
+      "QQQ": "Position(symbol='QQQ', side='long', entry_price=np.float64(274.8063049316406), current_price=np.float64(261.9010314941406), quantity=32, entry_date=Timestamp('2022-09-22 00:00:00'), current_date=Timestamp('2022-12-30 00:00:00'), unrealized_pnl=np.float64(-412.96875), realized_pnl=0.0, stop_loss=np.float64(252.8218005371094), take_profit=np.float64(288.54662017822267))"
+    },
+    "daily_pnl": -10652.786672508286,
+    "total_pnl": -9795.726776885986,
+    "max_drawdown": 0.12893201554588363,
+    "sharpe_ratio": -1.418052824844979,
+    "trades_today": 27,
+    "total_trades": 27
+  },
+  "performance_history": [
+    {
+      "date": "2022-01-03 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-04 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-05 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-06 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-07 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-10 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-11 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-12 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-13 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-14 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-18 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-19 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-20 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-21 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-24 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-25 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-26 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-27 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-28 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-01-31 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-01 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-02 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-03 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-04 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-07 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-08 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-09 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-10 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-11 00:00:00",
+      "portfolio_value": 100000.0,
+      "cash": 100000.0,
+      "positions_value": 0,
+      "daily_pnl": 0.0,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0,
+      "num_positions": 0
+    },
+    {
+      "date": "2022-02-14 00:00:00",
+      "portfolio_value": 99966.73147384643,
+      "cash": 83332.4683970642,
+      "positions_value": 16634.263076782227,
+      "daily_pnl": -33.2685261535662,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.000332685261535662,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-15 00:00:00",
+      "portfolio_value": 99955.70586959839,
+      "cash": 83332.4683970642,
+      "positions_value": 16623.23747253418,
+      "daily_pnl": -44.294130401613074,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.00044294130401613076,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-16 00:00:00",
+      "portfolio_value": 99876.46414749145,
+      "cash": 83332.4683970642,
+      "positions_value": 16543.995750427246,
+      "daily_pnl": -123.53585250854667,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0012353585250854666,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-17 00:00:00",
+      "portfolio_value": 99677.84364883423,
+      "cash": 83332.4683970642,
+      "positions_value": 16345.37525177002,
+      "daily_pnl": -322.15635116577323,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0032215635116577324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-18 00:00:00",
+      "portfolio_value": 99734.79016677856,
+      "cash": 83332.4683970642,
+      "positions_value": 16402.321769714355,
+      "daily_pnl": -265.2098332214373,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.0032215635116577324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-22 00:00:00",
+      "portfolio_value": 99635.2606791687,
+      "cash": 83332.4683970642,
+      "positions_value": 16302.792282104492,
+      "daily_pnl": -364.7393208313006,
+      "total_pnl": 0.0,
+      "max_drawdown": 0.003647393208313006,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-02-23 00:00:00",
+      "portfolio_value": 99483.9333085022,
+      "cash": 89546.11379708862,
+      "positions_value": 9937.819511413574,
+      "daily_pnl": -516.0666914978065,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005160666914978064,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-02-24 00:00:00",
+      "portfolio_value": 99490.47720803833,
+      "cash": 89546.11379708862,
+      "positions_value": 9944.363410949707,
+      "daily_pnl": -509.52279196167365,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005160666914978064,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-02-25 00:00:00",
+      "portfolio_value": 99497.74870004272,
+      "cash": 89546.11379708862,
+      "positions_value": 9951.634902954102,
+      "daily_pnl": -502.2512999572791,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005160666914978064,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-02-28 00:00:00",
+      "portfolio_value": 99715.87256326294,
+      "cash": 89546.11379708862,
+      "positions_value": 10169.758766174316,
+      "daily_pnl": -284.1274367370643,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005160666914978064,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-01 00:00:00",
+      "portfolio_value": 99833.45188607788,
+      "cash": 89546.11379708862,
+      "positions_value": 10287.338088989258,
+      "daily_pnl": -166.54811392212287,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005160666914978064,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-02 00:00:00",
+      "portfolio_value": 99481.80562295532,
+      "cash": 89546.11379708862,
+      "positions_value": 9935.6918258667,
+      "daily_pnl": -518.1943770446815,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.0051819437704468145,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-03 00:00:00",
+      "portfolio_value": 99583.0043000183,
+      "cash": 89546.11379708862,
+      "positions_value": 10036.890502929688,
+      "daily_pnl": -416.9956999816932,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.0051819437704468145,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-04 00:00:00",
+      "portfolio_value": 99756.28275765991,
+      "cash": 89546.11379708862,
+      "positions_value": 10210.168960571289,
+      "daily_pnl": -243.71724234009162,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.0051819437704468145,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-07 00:00:00",
+      "portfolio_value": 99678.38097085571,
+      "cash": 89546.11379708862,
+      "positions_value": 10132.26717376709,
+      "daily_pnl": -321.61902914429083,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.0051819437704468145,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-08 00:00:00",
+      "portfolio_value": 99576.45026864624,
+      "cash": 89546.11379708862,
+      "positions_value": 10030.336471557617,
+      "daily_pnl": -423.5497313537635,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.0051819437704468145,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-09 00:00:00",
+      "portfolio_value": 99478.16576089477,
+      "cash": 89546.11379708862,
+      "positions_value": 9932.051963806152,
+      "daily_pnl": -521.8342391052283,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.005218342391052283,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-10 00:00:00",
+      "portfolio_value": 99335.46708383178,
+      "cash": 89546.11379708862,
+      "positions_value": 9789.353286743164,
+      "daily_pnl": -664.5329161682166,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.006645329161682166,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-11 00:00:00",
+      "portfolio_value": 99368.22964181518,
+      "cash": 89546.11379708862,
+      "positions_value": 9822.115844726562,
+      "daily_pnl": -631.7703581848182,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.006645329161682166,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-14 00:00:00",
+      "portfolio_value": 99138.89110269165,
+      "cash": 89546.11379708862,
+      "positions_value": 9592.777305603027,
+      "daily_pnl": -861.1088973083533,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.008611088973083533,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-15 00:00:00",
+      "portfolio_value": 99122.15014352417,
+      "cash": 89546.11379708862,
+      "positions_value": 9576.036346435547,
+      "daily_pnl": -877.8498564758338,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.008778498564758338,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-16 00:00:00",
+      "portfolio_value": 99216.06782998657,
+      "cash": 89546.11379708862,
+      "positions_value": 9669.95403289795,
+      "daily_pnl": -783.9321700134315,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.008778498564758338,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-17 00:00:00",
+      "portfolio_value": 99143.99058236694,
+      "cash": 89546.11379708862,
+      "positions_value": 9597.87678527832,
+      "daily_pnl": -856.0094176330604,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.008778498564758338,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-18 00:00:00",
+      "portfolio_value": 99261.20769204712,
+      "cash": 89546.11379708862,
+      "positions_value": 9715.093894958496,
+      "daily_pnl": -738.7923079528846,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.008778498564758338,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-21 00:00:00",
+      "portfolio_value": 99036.24167337036,
+      "cash": 89546.11379708862,
+      "positions_value": 9490.127876281738,
+      "daily_pnl": -963.7583266296424,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.009637583266296424,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-22 00:00:00",
+      "portfolio_value": 98914.6533097229,
+      "cash": 89546.11379708862,
+      "positions_value": 9368.539512634277,
+      "daily_pnl": -1085.3466902771033,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010853466902771034,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-23 00:00:00",
+      "portfolio_value": 99119.96609963989,
+      "cash": 89546.11379708862,
+      "positions_value": 9573.85230255127,
+      "daily_pnl": -880.0339003601111,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010853466902771034,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-24 00:00:00",
+      "portfolio_value": 99044.97594918823,
+      "cash": 89546.11379708862,
+      "positions_value": 9498.86215209961,
+      "daily_pnl": -955.0240508117713,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010853466902771034,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-25 00:00:00",
+      "portfolio_value": 98913.19875802612,
+      "cash": 89546.11379708862,
+      "positions_value": 9367.0849609375,
+      "daily_pnl": -1086.8012419738807,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-28 00:00:00",
+      "portfolio_value": 98993.28268899536,
+      "cash": 89546.11379708862,
+      "positions_value": 9447.168891906738,
+      "daily_pnl": -1006.7173110046424,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-29 00:00:00",
+      "portfolio_value": 99064.63171090698,
+      "cash": 89546.11379708862,
+      "positions_value": 9518.51791381836,
+      "daily_pnl": -935.3682890930213,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-30 00:00:00",
+      "portfolio_value": 99138.89110269165,
+      "cash": 89546.11379708862,
+      "positions_value": 9592.777305603027,
+      "daily_pnl": -861.1088973083533,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-03-31 00:00:00",
+      "portfolio_value": 99162.19242562866,
+      "cash": 89546.11379708862,
+      "positions_value": 9616.078628540039,
+      "daily_pnl": -837.8075743713416,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-04-01 00:00:00",
+      "portfolio_value": 99198.79431619262,
+      "cash": 89546.11379708862,
+      "positions_value": 9652.680519104004,
+      "daily_pnl": -801.2056838073768,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-04-04 00:00:00",
+      "portfolio_value": 99131.71269692993,
+      "cash": 89546.11379708862,
+      "positions_value": 9585.598899841309,
+      "daily_pnl": -868.2873030700721,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-04-05 00:00:00",
+      "portfolio_value": 98915.15166940307,
+      "cash": 89546.11379708862,
+      "positions_value": 9369.037872314453,
+      "daily_pnl": -1084.8483305969276,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.010868012419738806,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-04-06 00:00:00",
+      "portfolio_value": 98839.31741036987,
+      "cash": 89546.11379708862,
+      "positions_value": 9293.20361328125,
+      "daily_pnl": -1160.6825896301307,
+      "total_pnl": -493.7057199707031,
+      "max_drawdown": 0.011606825896301307,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-04-07 00:00:00",
+      "portfolio_value": 98742.13246527097,
+      "cash": 59442.86352911375,
+      "positions_value": 39299.26893615723,
+      "daily_pnl": -1257.8675347290264,
+      "total_pnl": -1146.000470703125,
+      "max_drawdown": 0.012578675347290263,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-04-08 00:00:00",
+      "portfolio_value": 98305.3741950073,
+      "cash": 59442.86352911375,
+      "positions_value": 38862.510665893555,
+      "daily_pnl": -1694.6258049926982,
+      "total_pnl": -1146.000470703125,
+      "max_drawdown": 0.01694625804992698,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-04-11 00:00:00",
+      "portfolio_value": 97403.1678656616,
+      "cash": 59442.86352911375,
+      "positions_value": 37960.30433654785,
+      "daily_pnl": -2596.8321343384014,
+      "total_pnl": -1146.000470703125,
+      "max_drawdown": 0.025968321343384015,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-04-12 00:00:00",
+      "portfolio_value": 97382.33494061277,
+      "cash": 65286.73232525632,
+      "positions_value": 32095.602615356445,
+      "daily_pnl": -2617.6650593872328,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.02617665059387233,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-13 00:00:00",
+      "portfolio_value": 97736.26601666257,
+      "cash": 65286.73232525632,
+      "positions_value": 32449.53369140625,
+      "daily_pnl": -2263.733983337428,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.02617665059387233,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-14 00:00:00",
+      "portfolio_value": 97150.55120343015,
+      "cash": 65286.73232525632,
+      "positions_value": 31863.818878173828,
+      "daily_pnl": -2849.44879656985,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.0284944879656985,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-18 00:00:00",
+      "portfolio_value": 97102.22631329343,
+      "cash": 65286.73232525632,
+      "positions_value": 31815.49398803711,
+      "daily_pnl": -2897.7736867065687,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.028977736867065687,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-19 00:00:00",
+      "portfolio_value": 97420.67656964109,
+      "cash": 65286.73232525632,
+      "positions_value": 32133.944244384766,
+      "daily_pnl": -2579.3234303589124,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.028977736867065687,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-20 00:00:00",
+      "portfolio_value": 97544.33860272214,
+      "cash": 65286.73232525632,
+      "positions_value": 32257.60627746582,
+      "daily_pnl": -2455.6613972778578,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.028977736867065687,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-21 00:00:00",
+      "portfolio_value": 97179.63143414304,
+      "cash": 65286.73232525632,
+      "positions_value": 31892.89910888672,
+      "daily_pnl": -2820.3685658569593,
+      "total_pnl": -1645.6919162597658,
+      "max_drawdown": 0.028977736867065687,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-04-22 00:00:00",
+      "portfolio_value": 96633.71796582028,
+      "cash": 70828.74239514157,
+      "positions_value": 25804.97557067871,
+      "daily_pnl": -3366.2820341797196,
+      "total_pnl": -1988.3401715698244,
+      "max_drawdown": 0.0336628203417972,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-04-25 00:00:00",
+      "portfolio_value": 96738.49565609738,
+      "cash": 82041.26759823605,
+      "positions_value": 14697.228057861328,
+      "daily_pnl": -3261.5043439026194,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.0336628203417972,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-04-26 00:00:00",
+      "portfolio_value": 96691.5021868591,
+      "cash": 82041.26759823605,
+      "positions_value": 14650.234588623047,
+      "daily_pnl": -3308.4978131409007,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.0336628203417972,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-04-27 00:00:00",
+      "portfolio_value": 96585.4442950134,
+      "cash": 82041.26759823605,
+      "positions_value": 14544.176696777344,
+      "daily_pnl": -3414.555704986604,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.034145557049866035,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-04-28 00:00:00",
+      "portfolio_value": 96704.49461849972,
+      "cash": 82041.26759823605,
+      "positions_value": 14663.227020263672,
+      "daily_pnl": -3295.5053815002757,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.034145557049866035,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-04-29 00:00:00",
+      "portfolio_value": 96426.43459042355,
+      "cash": 82041.26759823605,
+      "positions_value": 14385.1669921875,
+      "daily_pnl": -3573.5654095764476,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.03573565409576448,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-05-02 00:00:00",
+      "portfolio_value": 96291.38176449582,
+      "cash": 82041.26759823605,
+      "positions_value": 14250.114166259766,
+      "daily_pnl": -3708.618235504182,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.03708618235504182,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-05-03 00:00:00",
+      "portfolio_value": 96358.3961687927,
+      "cash": 82041.26759823605,
+      "positions_value": 14317.12857055664,
+      "daily_pnl": -3641.603831207307,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.03708618235504182,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-05-04 00:00:00",
+      "portfolio_value": 96564.25029476926,
+      "cash": 82041.26759823605,
+      "positions_value": 14522.982696533203,
+      "daily_pnl": -3435.7497052307444,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.03708618235504182,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-05-05 00:00:00",
+      "portfolio_value": 96149.13591488644,
+      "cash": 82041.26759823605,
+      "positions_value": 14107.86831665039,
+      "daily_pnl": -3850.864085113557,
+      "total_pnl": -2669.250652679443,
+      "max_drawdown": 0.03850864085113557,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-05-06 00:00:00",
+      "portfolio_value": 96112.31177603146,
+      "cash": 90552.43048941037,
+      "positions_value": 5559.881286621094,
+      "daily_pnl": -3887.6882239685365,
+      "total_pnl": -3492.4134450988768,
+      "max_drawdown": 0.03887688223968536,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-05-09 00:00:00",
+      "portfolio_value": 96002.9967125549,
+      "cash": 90552.43048941037,
+      "positions_value": 5450.566223144531,
+      "daily_pnl": -3997.003287445099,
+      "total_pnl": -3492.4134450988768,
+      "max_drawdown": 0.039970032874450986,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-05-10 00:00:00",
+      "portfolio_value": 95829.90943662258,
+      "cash": 14736.8376936111,
+      "positions_value": 81093.07174301147,
+      "daily_pnl": -4170.090563377424,
+      "total_pnl": -3896.0373558654783,
+      "max_drawdown": 0.04170090563377424,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-05-11 00:00:00",
+      "portfolio_value": 94548.86092130275,
+      "cash": 14736.8376936111,
+      "positions_value": 79812.02322769165,
+      "daily_pnl": -5451.139078697248,
+      "total_pnl": -3896.0373558654783,
+      "max_drawdown": 0.05451139078697248,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-05-12 00:00:00",
+      "portfolio_value": 94245.59882108303,
+      "cash": 14736.8376936111,
+      "positions_value": 79508.76112747192,
+      "daily_pnl": -5754.4011789169745,
+      "total_pnl": -3896.0373558654783,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-05-13 00:00:00",
+      "portfolio_value": 95875.47512952419,
+      "cash": 14736.8376936111,
+      "positions_value": 81138.63743591309,
+      "daily_pnl": -4124.524870475812,
+      "total_pnl": -3896.0373558654783,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-05-16 00:00:00",
+      "portfolio_value": 95272.56380979152,
+      "cash": 14736.8376936111,
+      "positions_value": 80535.72611618042,
+      "daily_pnl": -4727.436190208478,
+      "total_pnl": -3896.0373558654783,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-05-17 00:00:00",
+      "portfolio_value": 96835.16130567165,
+      "cash": 20650.58662152858,
+      "positions_value": 76184.57468414307,
+      "daily_pnl": -3164.838694328355,
+      "total_pnl": -4475.488501190185,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 8
+    },
+    {
+      "date": "2022-05-18 00:00:00",
+      "portfolio_value": 94643.0299291763,
+      "cash": 30207.020930305436,
+      "positions_value": 64436.00899887085,
+      "daily_pnl": -5356.970070823707,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-19 00:00:00",
+      "portfolio_value": 94742.7264852676,
+      "cash": 30207.020930305436,
+      "positions_value": 64535.70555496216,
+      "daily_pnl": -5257.273514732398,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-20 00:00:00",
+      "portfolio_value": 94723.05969907375,
+      "cash": 30207.020930305436,
+      "positions_value": 64516.03876876831,
+      "daily_pnl": -5276.940300926246,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-23 00:00:00",
+      "portfolio_value": 95742.42549039455,
+      "cash": 30207.020930305436,
+      "positions_value": 65535.40456008911,
+      "daily_pnl": -4257.574509605445,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-24 00:00:00",
+      "portfolio_value": 95223.97155286404,
+      "cash": 30207.020930305436,
+      "positions_value": 65016.950622558594,
+      "daily_pnl": -4776.028447135963,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-25 00:00:00",
+      "portfolio_value": 95735.3401823196,
+      "cash": 30207.020930305436,
+      "positions_value": 65528.31925201416,
+      "daily_pnl": -4264.659817680396,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-26 00:00:00",
+      "portfolio_value": 96779.73496152493,
+      "cash": 30207.020930305436,
+      "positions_value": 66572.71403121948,
+      "daily_pnl": -3220.265038475074,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-27 00:00:00",
+      "portfolio_value": 98107.74633313747,
+      "cash": 30207.020930305436,
+      "positions_value": 67900.72540283203,
+      "daily_pnl": -1892.2536668625253,
+      "total_pnl": -3954.351288665771,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-05-31 00:00:00",
+      "portfolio_value": 97951.38043671413,
+      "cash": 39500.346859748795,
+      "positions_value": 58451.03357696533,
+      "daily_pnl": -2048.6195632858726,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-01 00:00:00",
+      "portfolio_value": 97755.2100036697,
+      "cash": 39500.346859748795,
+      "positions_value": 58254.8631439209,
+      "daily_pnl": -2244.789996330306,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-02 00:00:00",
+      "portfolio_value": 98701.27895432277,
+      "cash": 39500.346859748795,
+      "positions_value": 59200.932094573975,
+      "daily_pnl": -1298.72104567723,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-03 00:00:00",
+      "portfolio_value": 97755.62372666164,
+      "cash": 39500.346859748795,
+      "positions_value": 58255.27686691284,
+      "daily_pnl": -2244.376273338363,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-06 00:00:00",
+      "portfolio_value": 97788.33922653957,
+      "cash": 39500.346859748795,
+      "positions_value": 58287.99236679077,
+      "daily_pnl": -2211.660773460433,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-07 00:00:00",
+      "portfolio_value": 98269.92420655055,
+      "cash": 39500.346859748795,
+      "positions_value": 58769.57734680176,
+      "daily_pnl": -1730.0757934494468,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-08 00:00:00",
+      "portfolio_value": 97984.25405579372,
+      "cash": 39500.346859748795,
+      "positions_value": 58483.90719604492,
+      "daily_pnl": -2015.7459442062827,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-09 00:00:00",
+      "portfolio_value": 96835.83647995754,
+      "cash": 39500.346859748795,
+      "positions_value": 57335.48962020874,
+      "daily_pnl": -3164.1635200424644,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-10 00:00:00",
+      "portfolio_value": 95581.20532685085,
+      "cash": 39500.346859748795,
+      "positions_value": 56080.85846710205,
+      "daily_pnl": -4418.794673149154,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.05754401178916974,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-13 00:00:00",
+      "portfolio_value": 93569.61793976589,
+      "cash": 39500.346859748795,
+      "positions_value": 54069.27108001709,
+      "daily_pnl": -6430.382060234115,
+      "total_pnl": -3343.211516448974,
+      "max_drawdown": 0.06430382060234115,
+      "num_positions": 6
+    },
+    {
+      "date": "2022-06-14 00:00:00",
+      "portfolio_value": 93528.20903223415,
+      "cash": 56573.1934682693,
+      "positions_value": 36955.015563964844,
+      "daily_pnl": -6471.790967765846,
+      "total_pnl": -5103.2861725769035,
+      "max_drawdown": 0.06471790967765846,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-06-15 00:00:00",
+      "portfolio_value": 93992.0193731155,
+      "cash": 56573.1934682693,
+      "positions_value": 37418.82590484619,
+      "daily_pnl": -6007.980626884499,
+      "total_pnl": -5103.2861725769035,
+      "max_drawdown": 0.06471790967765846,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-06-16 00:00:00",
+      "portfolio_value": 93284.46190851589,
+      "cash": 56573.1934682693,
+      "positions_value": 36711.26844024658,
+      "daily_pnl": -6715.538091484108,
+      "total_pnl": -5103.2861725769035,
+      "max_drawdown": 0.06715538091484108,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-06-17 00:00:00",
+      "portfolio_value": 93206.32473197169,
+      "cash": 74008.7857877273,
+      "positions_value": 19197.538944244385,
+      "daily_pnl": -6793.67526802831,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.0679367526802831,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-21 00:00:00",
+      "portfolio_value": 93325.4664594192,
+      "cash": 74008.7857877273,
+      "positions_value": 19316.680671691895,
+      "daily_pnl": -6674.5335405808,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.0679367526802831,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-22 00:00:00",
+      "portfolio_value": 93189.19326224513,
+      "cash": 74008.7857877273,
+      "positions_value": 19180.407474517822,
+      "daily_pnl": -6810.806737754872,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06810806737754872,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-23 00:00:00",
+      "portfolio_value": 93159.45072760768,
+      "cash": 74008.7857877273,
+      "positions_value": 19150.66493988037,
+      "daily_pnl": -6840.5492723923235,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06840549272392324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-24 00:00:00",
+      "portfolio_value": 93377.56109442897,
+      "cash": 74008.7857877273,
+      "positions_value": 19368.77530670166,
+      "daily_pnl": -6622.438905571034,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06840549272392324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-27 00:00:00",
+      "portfolio_value": 93379.02789130397,
+      "cash": 74008.7857877273,
+      "positions_value": 19370.24210357666,
+      "daily_pnl": -6620.972108696034,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06840549272392324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-28 00:00:00",
+      "portfolio_value": 93302.80831351466,
+      "cash": 74008.7857877273,
+      "positions_value": 19294.022525787354,
+      "daily_pnl": -6697.191686485341,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06840549272392324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-29 00:00:00",
+      "portfolio_value": 93256.7827245254,
+      "cash": 74008.7857877273,
+      "positions_value": 19247.996936798096,
+      "daily_pnl": -6743.217275474599,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06840549272392324,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-06-30 00:00:00",
+      "portfolio_value": 93153.09246268458,
+      "cash": 74008.7857877273,
+      "positions_value": 19144.306674957275,
+      "daily_pnl": -6846.907537315419,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06846907537315419,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-01 00:00:00",
+      "portfolio_value": 93084.71285071559,
+      "cash": 74008.7857877273,
+      "positions_value": 19075.92706298828,
+      "daily_pnl": -6915.287149284413,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.06915287149284413,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-05 00:00:00",
+      "portfolio_value": 92809.72447409816,
+      "cash": 74008.7857877273,
+      "positions_value": 18800.93868637085,
+      "daily_pnl": -7190.275525901845,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.07190275525901844,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-06 00:00:00",
+      "portfolio_value": 92605.44518485255,
+      "cash": 74008.7857877273,
+      "positions_value": 18596.659397125244,
+      "daily_pnl": -7394.55481514745,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.0739455481514745,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-07 00:00:00",
+      "portfolio_value": 92801.79245200343,
+      "cash": 74008.7857877273,
+      "positions_value": 18793.006664276123,
+      "daily_pnl": -7198.2075479965715,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.0739455481514745,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-08 00:00:00",
+      "portfolio_value": 92805.71286215968,
+      "cash": 74008.7857877273,
+      "positions_value": 18796.927074432373,
+      "daily_pnl": -7194.2871378403215,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.0739455481514745,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-11 00:00:00",
+      "portfolio_value": 92497.88199820704,
+      "cash": 74008.7857877273,
+      "positions_value": 18489.096210479736,
+      "daily_pnl": -7502.118001792958,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.07502118001792958,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-12 00:00:00",
+      "portfolio_value": 92427.95872321315,
+      "cash": 74008.7857877273,
+      "positions_value": 18419.17293548584,
+      "daily_pnl": -7572.041276786855,
+      "total_pnl": -6527.339757659911,
+      "max_drawdown": 0.07572041276786855,
+      "num_positions": 2
+    },
+    {
+      "date": "2022-07-13 00:00:00",
+      "portfolio_value": 92388.15129126735,
+      "cash": 82997.2529300613,
+      "positions_value": 9390.898361206055,
+      "daily_pnl": -7611.84870873265,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.0761184870873265,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-14 00:00:00",
+      "portfolio_value": 92303.39678229518,
+      "cash": 82997.2529300613,
+      "positions_value": 9306.143852233887,
+      "daily_pnl": -7696.603217704818,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-15 00:00:00",
+      "portfolio_value": 92351.82750357814,
+      "cash": 82997.2529300613,
+      "positions_value": 9354.574573516846,
+      "daily_pnl": -7648.172496421859,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-18 00:00:00",
+      "portfolio_value": 92417.21091880031,
+      "cash": 82997.2529300613,
+      "positions_value": 9419.957988739014,
+      "daily_pnl": -7582.789081199691,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-19 00:00:00",
+      "portfolio_value": 92572.19161643214,
+      "cash": 82997.2529300613,
+      "positions_value": 9574.93868637085,
+      "daily_pnl": -7427.808383567855,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-20 00:00:00",
+      "portfolio_value": 92531.02505530544,
+      "cash": 82997.2529300613,
+      "positions_value": 9533.77212524414,
+      "daily_pnl": -7468.974944694564,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-21 00:00:00",
+      "portfolio_value": 92639.99542273708,
+      "cash": 82997.2529300613,
+      "positions_value": 9642.742492675781,
+      "daily_pnl": -7360.004577262924,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-22 00:00:00",
+      "portfolio_value": 92543.13298453517,
+      "cash": 82997.2529300613,
+      "positions_value": 9545.880054473877,
+      "daily_pnl": -7456.867015464828,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-25 00:00:00",
+      "portfolio_value": 92577.03538550563,
+      "cash": 82997.2529300613,
+      "positions_value": 9579.782455444336,
+      "daily_pnl": -7422.964614494369,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-26 00:00:00",
+      "portfolio_value": 92501.96542777248,
+      "cash": 82997.2529300613,
+      "positions_value": 9504.712497711182,
+      "daily_pnl": -7498.034572227523,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-27 00:00:00",
+      "portfolio_value": 92678.74159278102,
+      "cash": 82997.2529300613,
+      "positions_value": 9681.488662719727,
+      "daily_pnl": -7321.258407218978,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-28 00:00:00",
+      "portfolio_value": 92719.90815390773,
+      "cash": 82997.2529300613,
+      "positions_value": 9722.655223846436,
+      "daily_pnl": -7280.091846092269,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-07-29 00:00:00",
+      "portfolio_value": 92673.89782370754,
+      "cash": 82997.2529300613,
+      "positions_value": 9676.64489364624,
+      "daily_pnl": -7326.102176292465,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-01 00:00:00",
+      "portfolio_value": 92591.56370581813,
+      "cash": 82997.2529300613,
+      "positions_value": 9594.310775756836,
+      "daily_pnl": -7408.436294181869,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-02 00:00:00",
+      "portfolio_value": 92545.55536688991,
+      "cash": 82997.2529300613,
+      "positions_value": 9548.302436828613,
+      "daily_pnl": -7454.444633110092,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-03 00:00:00",
+      "portfolio_value": 92620.6223377151,
+      "cash": 82997.2529300613,
+      "positions_value": 9623.369407653809,
+      "daily_pnl": -7379.377662284896,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-04 00:00:00",
+      "portfolio_value": 92688.42713965602,
+      "cash": 82997.2529300613,
+      "positions_value": 9691.174209594727,
+      "daily_pnl": -7311.572860343978,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-05 00:00:00",
+      "portfolio_value": 92698.11368216701,
+      "cash": 82997.2529300613,
+      "positions_value": 9700.860752105713,
+      "daily_pnl": -7301.886317832992,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-08 00:00:00",
+      "portfolio_value": 92710.22260703273,
+      "cash": 82997.2529300613,
+      "positions_value": 9712.969676971436,
+      "daily_pnl": -7289.777392967269,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-09 00:00:00",
+      "portfolio_value": 92673.89782370754,
+      "cash": 82997.2529300613,
+      "positions_value": 9676.64489364624,
+      "daily_pnl": -7326.102176292465,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-10 00:00:00",
+      "portfolio_value": 92794.9771160049,
+      "cash": 82997.2529300613,
+      "positions_value": 9797.724185943604,
+      "daily_pnl": -7205.022883995101,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-11 00:00:00",
+      "portfolio_value": 92833.72328604884,
+      "cash": 82997.2529300613,
+      "positions_value": 9836.470355987549,
+      "daily_pnl": -7166.276713951156,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-12 00:00:00",
+      "portfolio_value": 92937.849884407,
+      "cash": 82997.2529300613,
+      "positions_value": 9940.596954345703,
+      "daily_pnl": -7062.150115593002,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-15 00:00:00",
+      "portfolio_value": 92891.84054984279,
+      "cash": 82997.2529300613,
+      "positions_value": 9894.587619781494,
+      "daily_pnl": -7108.159450157211,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-16 00:00:00",
+      "portfolio_value": 92889.41916312404,
+      "cash": 82997.2529300613,
+      "positions_value": 9892.166233062744,
+      "daily_pnl": -7110.580836875961,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-17 00:00:00",
+      "portfolio_value": 92848.25260199733,
+      "cash": 82997.2529300613,
+      "positions_value": 9850.999671936035,
+      "daily_pnl": -7151.74739800267,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-18 00:00:00",
+      "portfolio_value": 92792.55572928615,
+      "cash": 82997.2529300613,
+      "positions_value": 9795.302799224854,
+      "daily_pnl": -7207.444270713851,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-19 00:00:00",
+      "portfolio_value": 92659.36950339504,
+      "cash": 82997.2529300613,
+      "positions_value": 9662.11657333374,
+      "daily_pnl": -7340.630496604965,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-22 00:00:00",
+      "portfolio_value": 92574.6130031509,
+      "cash": 82997.2529300613,
+      "positions_value": 9577.3600730896,
+      "daily_pnl": -7425.386996849105,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-23 00:00:00",
+      "portfolio_value": 92625.46610678859,
+      "cash": 82997.2529300613,
+      "positions_value": 9628.213176727295,
+      "daily_pnl": -7374.53389321141,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-24 00:00:00",
+      "portfolio_value": 92623.04571570583,
+      "cash": 82997.2529300613,
+      "positions_value": 9625.792785644531,
+      "daily_pnl": -7376.954284294174,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-25 00:00:00",
+      "portfolio_value": 92831.29990805812,
+      "cash": 82997.2529300613,
+      "positions_value": 9834.046977996826,
+      "daily_pnl": -7168.700091941879,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-26 00:00:00",
+      "portfolio_value": 92686.00575293727,
+      "cash": 82997.2529300613,
+      "positions_value": 9688.752822875977,
+      "daily_pnl": -7313.994247062728,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-29 00:00:00",
+      "portfolio_value": 92625.46610678859,
+      "cash": 82997.2529300613,
+      "positions_value": 9628.213176727295,
+      "daily_pnl": -7374.53389321141,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-30 00:00:00",
+      "portfolio_value": 92511.65197028346,
+      "cash": 82997.2529300613,
+      "positions_value": 9514.399040222168,
+      "daily_pnl": -7488.348029716537,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-08-31 00:00:00",
+      "portfolio_value": 92545.55536688991,
+      "cash": 82997.2529300613,
+      "positions_value": 9548.302436828613,
+      "daily_pnl": -7454.444633110092,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-01 00:00:00",
+      "portfolio_value": 92470.48441352077,
+      "cash": 82997.2529300613,
+      "positions_value": 9473.231483459473,
+      "daily_pnl": -7529.515586479232,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-02 00:00:00",
+      "portfolio_value": 92383.30851782985,
+      "cash": 82997.2529300613,
+      "positions_value": 9386.055587768555,
+      "daily_pnl": -7616.69148217015,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07696603217704819,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-06 00:00:00",
+      "portfolio_value": 92271.91477240749,
+      "cash": 82997.2529300613,
+      "positions_value": 9274.661842346191,
+      "daily_pnl": -7728.085227592514,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-07 00:00:00",
+      "portfolio_value": 92354.2478946609,
+      "cash": 82997.2529300613,
+      "positions_value": 9356.99496459961,
+      "daily_pnl": -7645.752105339096,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-08 00:00:00",
+      "portfolio_value": 92303.39678229518,
+      "cash": 82997.2529300613,
+      "positions_value": 9306.143852233887,
+      "daily_pnl": -7696.603217704818,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-09 00:00:00",
+      "portfolio_value": 92441.4257816238,
+      "cash": 82997.2529300613,
+      "positions_value": 9444.1728515625,
+      "daily_pnl": -7558.574218376205,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-12 00:00:00",
+      "portfolio_value": 92581.87815894313,
+      "cash": 82997.2529300613,
+      "positions_value": 9584.625228881836,
+      "daily_pnl": -7418.121841056869,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-13 00:00:00",
+      "portfolio_value": 92286.44508399196,
+      "cash": 82997.2529300613,
+      "positions_value": 9289.192153930664,
+      "daily_pnl": -7713.554916008041,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-14 00:00:00",
+      "portfolio_value": 92332.45441855617,
+      "cash": 82997.2529300613,
+      "positions_value": 9335.201488494873,
+      "daily_pnl": -7667.545581443832,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07728085227592514,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-15 00:00:00",
+      "portfolio_value": 92233.16959799953,
+      "cash": 82997.2529300613,
+      "positions_value": 9235.916667938232,
+      "daily_pnl": -7766.8304020004725,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07766830402000473,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-16 00:00:00",
+      "portfolio_value": 92148.41508902736,
+      "cash": 82997.2529300613,
+      "positions_value": 9151.162158966064,
+      "daily_pnl": -7851.5849109726405,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07851584910972641,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-19 00:00:00",
+      "portfolio_value": 92177.47372092433,
+      "cash": 82997.2529300613,
+      "positions_value": 9180.220790863037,
+      "daily_pnl": -7822.526279075668,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.07851584910972641,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-20 00:00:00",
+      "portfolio_value": 92126.61962165065,
+      "cash": 82997.2529300613,
+      "positions_value": 9129.366691589355,
+      "daily_pnl": -7873.3803783493495,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.0787338037834935,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-21 00:00:00",
+      "portfolio_value": 91974.06031073756,
+      "cash": 82997.2529300613,
+      "positions_value": 8976.80738067627,
+      "daily_pnl": -8025.939689262435,
+      "total_pnl": -7138.392512786864,
+      "max_drawdown": 0.08025939689262436,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-09-22 00:00:00",
+      "portfolio_value": 91786.06875786585,
+      "cash": 6767.099702690073,
+      "positions_value": 85018.96905517578,
+      "daily_pnl": -8213.931242134146,
+      "total_pnl": -7769.84009651184,
+      "max_drawdown": 0.08213931242134145,
+      "num_positions": 10
+    },
+    {
+      "date": "2022-09-23 00:00:00",
+      "portfolio_value": 90132.8178575973,
+      "cash": 6767.099702690073,
+      "positions_value": 83365.71815490723,
+      "daily_pnl": -9867.1821424027,
+      "total_pnl": -7769.84009651184,
+      "max_drawdown": 0.098671821424027,
+      "num_positions": 10
+    },
+    {
+      "date": "2022-09-26 00:00:00",
+      "portfolio_value": 89312.86268791957,
+      "cash": 6767.099702690073,
+      "positions_value": 82545.76298522949,
+      "daily_pnl": -10687.137312080435,
+      "total_pnl": -7769.84009651184,
+      "max_drawdown": 0.10687137312080434,
+      "num_positions": 10
+    },
+    {
+      "date": "2022-09-27 00:00:00",
+      "portfolio_value": 88806.80364519496,
+      "cash": 13699.377589286752,
+      "positions_value": 75107.4260559082,
+      "daily_pnl": -11193.19635480504,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.1119319635480504,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-09-28 00:00:00",
+      "portfolio_value": 90798.07609087367,
+      "cash": 13699.377589286752,
+      "positions_value": 77098.69850158691,
+      "daily_pnl": -9201.92390912633,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.1119319635480504,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-09-29 00:00:00",
+      "portfolio_value": 89059.26356035609,
+      "cash": 13699.377589286752,
+      "positions_value": 75359.88597106934,
+      "daily_pnl": -10940.736439643908,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.1119319635480504,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-09-30 00:00:00",
+      "portfolio_value": 88097.8391676559,
+      "cash": 13699.377589286752,
+      "positions_value": 74398.46157836914,
+      "daily_pnl": -11902.160832344103,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-03 00:00:00",
+      "portfolio_value": 89864.38120561976,
+      "cash": 13699.377589286752,
+      "positions_value": 76165.00361633301,
+      "daily_pnl": -10135.618794380236,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-04 00:00:00",
+      "portfolio_value": 91980.8335829391,
+      "cash": 13699.377589286752,
+      "positions_value": 78281.45599365234,
+      "daily_pnl": -8019.1664170609,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-05 00:00:00",
+      "portfolio_value": 91705.40763384242,
+      "cash": 13699.377589286752,
+      "positions_value": 78006.03004455566,
+      "daily_pnl": -8294.59236615758,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-06 00:00:00",
+      "portfolio_value": 91246.75821977992,
+      "cash": 13699.377589286752,
+      "positions_value": 77547.38063049316,
+      "daily_pnl": -8753.24178022008,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-07 00:00:00",
+      "portfolio_value": 88991.34034258265,
+      "cash": 13699.377589286752,
+      "positions_value": 75291.9627532959,
+      "daily_pnl": -11008.659657417345,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-10 00:00:00",
+      "portfolio_value": 88389.45818621058,
+      "cash": 13699.377589286752,
+      "positions_value": 74690.08059692383,
+      "daily_pnl": -11610.541813789416,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.11902160832344104,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-11 00:00:00",
+      "portfolio_value": 87698.2435942306,
+      "cash": 13699.377589286752,
+      "positions_value": 73998.86600494385,
+      "daily_pnl": -12301.756405769396,
+      "total_pnl": -8186.112304519653,
+      "max_drawdown": 0.12301756405769396,
+      "num_positions": 9
+    },
+    {
+      "date": "2022-10-12 00:00:00",
+      "portfolio_value": 87742.25262326808,
+      "cash": 28144.849470802255,
+      "positions_value": 59597.40315246582,
+      "daily_pnl": -12257.747376731917,
+      "total_pnl": -9468.101543609619,
+      "max_drawdown": 0.12301756405769396,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-10-13 00:00:00",
+      "portfolio_value": 88629.63349790187,
+      "cash": 28144.849470802255,
+      "positions_value": 60484.78402709961,
+      "daily_pnl": -11370.366502098128,
+      "total_pnl": -9468.101543609619,
+      "max_drawdown": 0.12301756405769396,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-10-14 00:00:00",
+      "portfolio_value": 87106.79844541164,
+      "cash": 28144.849470802255,
+      "positions_value": 58961.948974609375,
+      "daily_pnl": -12893.201554588362,
+      "total_pnl": -9468.101543609619,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 7
+    },
+    {
+      "date": "2022-10-17 00:00:00",
+      "portfolio_value": 88285.65942163844,
+      "cash": 44861.06821985621,
+      "positions_value": 43424.59120178223,
+      "daily_pnl": -11714.34057836156,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-18 00:00:00",
+      "portfolio_value": 88726.07221765895,
+      "cash": 44861.06821985621,
+      "positions_value": 43865.003997802734,
+      "daily_pnl": -11273.927782341052,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-19 00:00:00",
+      "portfolio_value": 88350.68171472926,
+      "cash": 44861.06821985621,
+      "positions_value": 43489.61349487305,
+      "daily_pnl": -11649.31828527074,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-20 00:00:00",
+      "portfolio_value": 88127.77570886989,
+      "cash": 44861.06821985621,
+      "positions_value": 43266.70748901367,
+      "daily_pnl": -11872.224291130115,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-21 00:00:00",
+      "portfolio_value": 89045.5164773025,
+      "cash": 44861.06821985621,
+      "positions_value": 44184.44825744629,
+      "daily_pnl": -10954.483522697497,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-24 00:00:00",
+      "portfolio_value": 89532.48335047145,
+      "cash": 44861.06821985621,
+      "positions_value": 44671.415130615234,
+      "daily_pnl": -10467.516649528552,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-25 00:00:00",
+      "portfolio_value": 90367.46549768824,
+      "cash": 44861.06821985621,
+      "positions_value": 45506.39727783203,
+      "daily_pnl": -9632.534502311755,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-26 00:00:00",
+      "portfolio_value": 89268.16251917262,
+      "cash": 44861.06821985621,
+      "positions_value": 44407.094299316406,
+      "daily_pnl": -10731.83748082738,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-27 00:00:00",
+      "portfolio_value": 88873.86765833278,
+      "cash": 44861.06821985621,
+      "positions_value": 44012.79943847656,
+      "daily_pnl": -11126.132341667224,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-28 00:00:00",
+      "portfolio_value": 90155.48321314235,
+      "cash": 44861.06821985621,
+      "positions_value": 45294.41499328613,
+      "daily_pnl": -9844.516786857654,
+      "total_pnl": -10863.933453735352,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 5
+    },
+    {
+      "date": "2022-10-31 00:00:00",
+      "portfolio_value": 89812.3943477859,
+      "cash": 54190.77442896266,
+      "positions_value": 35621.61991882324,
+      "daily_pnl": -10187.6056522141,
+      "total_pnl": -10079.168040527344,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-11-01 00:00:00",
+      "portfolio_value": 89325.8050686111,
+      "cash": 54190.77442896266,
+      "positions_value": 35135.03063964844,
+      "daily_pnl": -10674.194931388905,
+      "total_pnl": -10079.168040527344,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 4
+    },
+    {
+      "date": "2022-11-02 00:00:00",
+      "portfolio_value": 88482.92536847682,
+      "cash": 62440.46990888209,
+      "positions_value": 26042.455459594727,
+      "daily_pnl": -11517.07463152318,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-03 00:00:00",
+      "portfolio_value": 88168.98083417506,
+      "cash": 62440.46990888209,
+      "positions_value": 25728.51092529297,
+      "daily_pnl": -11831.019165824939,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-04 00:00:00",
+      "portfolio_value": 88545.40908734889,
+      "cash": 62440.46990888209,
+      "positions_value": 26104.939178466797,
+      "daily_pnl": -11454.59091265111,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-07 00:00:00",
+      "portfolio_value": 88762.88439862819,
+      "cash": 62440.46990888209,
+      "positions_value": 26322.414489746094,
+      "daily_pnl": -11237.115601371814,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-08 00:00:00",
+      "portfolio_value": 88876.72801129908,
+      "cash": 62440.46990888209,
+      "positions_value": 26436.258102416992,
+      "daily_pnl": -11123.271988700915,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-09 00:00:00",
+      "portfolio_value": 88250.77743451686,
+      "cash": 62440.46990888209,
+      "positions_value": 25810.307525634766,
+      "daily_pnl": -11749.222565483142,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-10 00:00:00",
+      "portfolio_value": 89881.45658795924,
+      "cash": 62440.46990888209,
+      "positions_value": 27440.98667907715,
+      "daily_pnl": -10118.543412040759,
+      "total_pnl": -10979.244991027832,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 3
+    },
+    {
+      "date": "2022-11-11 00:00:00",
+      "portfolio_value": 90007.91742905421,
+      "cash": 80966.38031967921,
+      "positions_value": 9041.537109375,
+      "daily_pnl": -9992.082570945786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-14 00:00:00",
+      "portfolio_value": 89928.79340561671,
+      "cash": 80966.38031967921,
+      "positions_value": 8962.4130859375,
+      "daily_pnl": -10071.206594383286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-15 00:00:00",
+      "portfolio_value": 90052.81879624171,
+      "cash": 80966.38031967921,
+      "positions_value": 9086.4384765625,
+      "daily_pnl": -9947.181203758286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-16 00:00:00",
+      "portfolio_value": 89928.79340561671,
+      "cash": 80966.38031967921,
+      "positions_value": 8962.4130859375,
+      "daily_pnl": -10071.206594383286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-17 00:00:00",
+      "portfolio_value": 89909.01215561671,
+      "cash": 80966.38031967921,
+      "positions_value": 8942.6318359375,
+      "daily_pnl": -10090.987844383286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-18 00:00:00",
+      "portfolio_value": 89909.32660874171,
+      "cash": 80966.38031967921,
+      "positions_value": 8942.9462890625,
+      "daily_pnl": -10090.673391258286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-21 00:00:00",
+      "portfolio_value": 89817.32856186671,
+      "cash": 80966.38031967921,
+      "positions_value": 8850.9482421875,
+      "daily_pnl": -10182.671438133286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-22 00:00:00",
+      "portfolio_value": 89944.80707749171,
+      "cash": 80966.38031967921,
+      "positions_value": 8978.4267578125,
+      "daily_pnl": -10055.192922508286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-23 00:00:00",
+      "portfolio_value": 90034.92133530421,
+      "cash": 80966.38031967921,
+      "positions_value": 9068.541015625,
+      "daily_pnl": -9965.078664695786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-25 00:00:00",
+      "portfolio_value": 89975.26410874171,
+      "cash": 80966.38031967921,
+      "positions_value": 9008.8837890625,
+      "daily_pnl": -10024.735891258286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-28 00:00:00",
+      "portfolio_value": 89843.07367905421,
+      "cash": 80966.38031967921,
+      "positions_value": 8876.693359375,
+      "daily_pnl": -10156.926320945786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-29 00:00:00",
+      "portfolio_value": 89775.88520249171,
+      "cash": 80966.38031967921,
+      "positions_value": 8809.5048828125,
+      "daily_pnl": -10224.114797508286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-11-30 00:00:00",
+      "portfolio_value": 90177.46821030421,
+      "cash": 80966.38031967921,
+      "positions_value": 9211.087890625,
+      "daily_pnl": -9822.531789695786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-01 00:00:00",
+      "portfolio_value": 90188.77387436671,
+      "cash": 80966.38031967921,
+      "positions_value": 9222.3935546875,
+      "daily_pnl": -9811.226125633286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-02 00:00:00",
+      "portfolio_value": 90152.03754624171,
+      "cash": 80966.38031967921,
+      "positions_value": 9185.6572265625,
+      "daily_pnl": -9847.962453758286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-05 00:00:00",
+      "portfolio_value": 89997.86957749171,
+      "cash": 80966.38031967921,
+      "positions_value": 9031.4892578125,
+      "daily_pnl": -10002.130422508286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-06 00:00:00",
+      "portfolio_value": 89810.73578842921,
+      "cash": 80966.38031967921,
+      "positions_value": 8844.35546875,
+      "daily_pnl": -10189.264211570786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-07 00:00:00",
+      "portfolio_value": 89774.62738999171,
+      "cash": 80966.38031967921,
+      "positions_value": 8808.2470703125,
+      "daily_pnl": -10225.372610008286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-08 00:00:00",
+      "portfolio_value": 89878.86860092921,
+      "cash": 80966.38031967921,
+      "positions_value": 8912.48828125,
+      "daily_pnl": -10121.131399070786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-09 00:00:00",
+      "portfolio_value": 89822.03754624171,
+      "cash": 80966.38031967921,
+      "positions_value": 8855.6572265625,
+      "daily_pnl": -10177.962453758286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-12 00:00:00",
+      "portfolio_value": 89933.18793686671,
+      "cash": 80966.38031967921,
+      "positions_value": 8966.8076171875,
+      "daily_pnl": -10066.812063133286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-13 00:00:00",
+      "portfolio_value": 90029.58344467921,
+      "cash": 80966.38031967921,
+      "positions_value": 9063.203125,
+      "daily_pnl": -9970.416555320786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-14 00:00:00",
+      "portfolio_value": 89962.39106186671,
+      "cash": 80966.38031967921,
+      "positions_value": 8996.0107421875,
+      "daily_pnl": -10037.608938133286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-15 00:00:00",
+      "portfolio_value": 89660.33344467921,
+      "cash": 80966.38031967921,
+      "positions_value": 8693.953125,
+      "daily_pnl": -10339.666555320786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-16 00:00:00",
+      "portfolio_value": 89577.44477280421,
+      "cash": 80966.38031967921,
+      "positions_value": 8611.064453125,
+      "daily_pnl": -10422.555227195786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-19 00:00:00",
+      "portfolio_value": 89456.42524155421,
+      "cash": 80966.38031967921,
+      "positions_value": 8490.044921875,
+      "daily_pnl": -10543.574758445786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-20 00:00:00",
+      "portfolio_value": 89449.81586655421,
+      "cash": 80966.38031967921,
+      "positions_value": 8483.435546875,
+      "daily_pnl": -10550.184133445786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-21 00:00:00",
+      "portfolio_value": 89572.88031967921,
+      "cash": 80966.38031967921,
+      "positions_value": 8606.5,
+      "daily_pnl": -10427.119680320786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-22 00:00:00",
+      "portfolio_value": 89362.32074936671,
+      "cash": 80966.38031967921,
+      "positions_value": 8395.9404296875,
+      "daily_pnl": -10637.679250633286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-23 00:00:00",
+      "portfolio_value": 89381.20258530421,
+      "cash": 80966.38031967921,
+      "positions_value": 8414.822265625,
+      "daily_pnl": -10618.797414695786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-27 00:00:00",
+      "portfolio_value": 89262.23188217921,
+      "cash": 80966.38031967921,
+      "positions_value": 8295.8515625,
+      "daily_pnl": -10737.768117820786,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-28 00:00:00",
+      "portfolio_value": 89152.70551499171,
+      "cash": 80966.38031967921,
+      "positions_value": 8186.3251953125,
+      "daily_pnl": -10847.294485008286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-29 00:00:00",
+      "portfolio_value": 89352.24848374171,
+      "cash": 80966.38031967921,
+      "positions_value": 8385.8681640625,
+      "daily_pnl": -10647.751516258286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    },
+    {
+      "date": "2022-12-30 00:00:00",
+      "portfolio_value": 89347.21332749171,
+      "cash": 80966.38031967921,
+      "positions_value": 8380.8330078125,
+      "daily_pnl": -10652.786672508286,
+      "total_pnl": -9795.726776885986,
+      "max_drawdown": 0.12893201554588363,
+      "num_positions": 1
+    }
+  ],
+  "trade_history": [
+    {
+      "symbol": "TLT",
+      "action": "buy",
+      "quantity": 83,
+      "price": 119.60134887695312,
+      "timestamp": "2022-02-14 00:00:00",
+      "signal_strength": 0.9999999999999999,
+      "strategy": "unknown",
+      "stop_loss": 112.42526794433593,
+      "take_profit": 129.1694567871094
+    },
+    {
+      "symbol": "META",
+      "action": "buy",
+      "quantity": 31,
+      "price": 216.3661651611328,
+      "timestamp": "2022-02-14 00:00:00",
+      "signal_strength": 0.6774891675722808,
+      "strategy": "unknown",
+      "stop_loss": 203.38419525146483,
+      "take_profit": 233.67545837402346
+    },
+    {
+      "symbol": "META",
+      "action": "sell",
+      "quantity": 31,
+      "entry_price": 216.3661651611328,
+      "exit_price": 200.84185791015625,
+      "entry_date": "2022-02-14 00:00:00",
+      "exit_date": "2022-02-22 00:00:00",
+      "pnl": -493.7057199707031,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "TLT",
+      "action": "sell",
+      "quantity": 83,
+      "entry_price": 119.60134887695312,
+      "exit_price": 111.96630859375,
+      "entry_date": "2022-02-14 00:00:00",
+      "exit_date": "2022-04-06 00:00:00",
+      "pnl": -652.2947507324219,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "TSLA",
+      "action": "buy",
+      "quantity": 18,
+      "price": 352.4200134277344,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.6572093586931906,
+      "strategy": "unknown",
+      "stop_loss": 334.7990127563476,
+      "take_profit": 405.2830154418945
+    },
+    {
+      "symbol": "QQQ",
+      "action": "buy",
+      "quantity": 17,
+      "price": 346.1563720703125,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.6174699332890902,
+      "strategy": "unknown",
+      "stop_loss": 328.8485534667969,
+      "take_profit": 398.07982788085934
+    },
+    {
+      "symbol": "DIA",
+      "action": "buy",
+      "quantity": 18,
+      "price": 324.6271667480469,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.6148060523166763,
+      "strategy": "unknown",
+      "stop_loss": 308.3958084106445,
+      "take_profit": 373.3212417602539
+    },
+    {
+      "symbol": "SPY",
+      "action": "buy",
+      "quantity": 14,
+      "price": 427.0772399902344,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.614593952560188,
+      "strategy": "unknown",
+      "stop_loss": 405.7233779907226,
+      "take_profit": 491.1388259887695
+    },
+    {
+      "symbol": "AAPL",
+      "action": "buy",
+      "quantity": 35,
+      "price": 168.98155212402344,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.6095914810748133,
+      "strategy": "unknown",
+      "stop_loss": 160.53247451782227,
+      "take_profit": 194.32878494262692
+    },
+    {
+      "symbol": "TLT",
+      "action": "buy",
+      "quantity": 84,
+      "price": 111.1229248046875,
+      "timestamp": "2022-04-07 00:00:00",
+      "signal_strength": 0.9554973455022338,
+      "strategy": "unknown",
+      "stop_loss": 102.2330908203125,
+      "take_profit": 116.67907104492188
+    },
+    {
+      "symbol": "TSLA",
+      "action": "sell",
+      "quantity": 18,
+      "entry_price": 352.4200134277344,
+      "exit_price": 325.30999755859375,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-04-11 00:00:00",
+      "pnl": -499.69144555664064,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "QQQ",
+      "action": "sell",
+      "quantity": 17,
+      "entry_price": 346.1563720703125,
+      "exit_price": 326.6539001464844,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-04-21 00:00:00",
+      "pnl": -342.6482553100586,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "SPY",
+      "action": "sell",
+      "quantity": 14,
+      "entry_price": 427.0772399902344,
+      "exit_price": 405.4460144042969,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-04-22 00:00:00",
+      "pnl": -314.1896466064453,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "AAPL",
+      "action": "sell",
+      "quantity": 35,
+      "entry_price": 168.98155212402344,
+      "exit_price": 158.8214569091797,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-04-22 00:00:00",
+      "pnl": -366.7208345031738,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "TLT",
+      "action": "sell",
+      "quantity": 84,
+      "entry_price": 111.1229248046875,
+      "exit_price": 101.52642059326172,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-05-05 00:00:00",
+      "pnl": -823.1627924194336,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "DIA",
+      "action": "sell",
+      "quantity": 18,
+      "entry_price": 324.6271667480469,
+      "exit_price": 302.8092346191406,
+      "entry_date": "2022-04-07 00:00:00",
+      "exit_date": "2022-05-09 00:00:00",
+      "pnl": -403.62391076660157,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "VXX",
+      "action": "buy",
+      "quantity": 15,
+      "price": 432.8800048828125,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 0.6929456930330341,
+      "strategy": "unknown",
+      "stop_loss": 411.23600463867183,
+      "take_profit": 497.81200561523434
+    },
+    {
+      "symbol": "MSFT",
+      "action": "buy",
+      "quantity": 36,
+      "price": 261.7918395996094,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 240.84849243164064,
+      "take_profit": 274.88143157958984
+    },
+    {
+      "symbol": "AMZN",
+      "action": "buy",
+      "quantity": 83,
+      "price": 108.85900115966797,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 0.9505581054242022,
+      "strategy": "unknown",
+      "stop_loss": 100.15028106689454,
+      "take_profit": 114.30195121765138
+    },
+    {
+      "symbol": "SPY",
+      "action": "buy",
+      "quantity": 25,
+      "price": 379.7987060546875,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 349.4148095703125,
+      "take_profit": 398.7886413574219
+    },
+    {
+      "symbol": "QQQ",
+      "action": "buy",
+      "quantity": 32,
+      "price": 294.0129699707031,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 270.4919323730469,
+      "take_profit": 308.71361846923827
+    },
+    {
+      "symbol": "IWM",
+      "action": "buy",
+      "quantity": 52,
+      "price": 166.96511840820312,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 0.9134737346323758,
+      "strategy": "unknown",
+      "stop_loss": 153.60790893554687,
+      "take_profit": 175.3133743286133
+    },
+    {
+      "symbol": "DIA",
+      "action": "buy",
+      "quantity": 31,
+      "price": 302.0863952636719,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 283.9612115478515,
+      "take_profit": 326.25330688476566
+    },
+    {
+      "symbol": "GLD",
+      "action": "buy",
+      "quantity": 56,
+      "price": 171.4199981689453,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 161.13479827880857,
+      "take_profit": 185.13359802246094
+    },
+    {
+      "symbol": "EEM",
+      "action": "buy",
+      "quantity": 261,
+      "price": 36.744449615478516,
+      "timestamp": "2022-05-10 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 34.5397826385498,
+      "take_profit": 39.6840055847168
+    },
+    {
+      "symbol": "VXX",
+      "action": "sell",
+      "quantity": 15,
+      "entry_price": 432.8800048828125,
+      "exit_price": 395.0400085449219,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-05-16 00:00:00",
+      "pnl": -579.451145324707,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "AMZN",
+      "action": "sell",
+      "quantity": 83,
+      "entry_price": 108.85900115966797,
+      "exit_price": 115.36849975585938,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-05-17 00:00:00",
+      "pnl": 521.137212524414,
+      "reason": "take_profit"
+    },
+    {
+      "symbol": "IWM",
+      "action": "sell",
+      "quantity": 52,
+      "entry_price": 166.96511840820312,
+      "exit_price": 179.07595825195312,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-05-27 00:00:00",
+      "pnl": 611.1397722167969,
+      "reason": "take_profit"
+    },
+    {
+      "symbol": "MSFT",
+      "action": "sell",
+      "quantity": 36,
+      "entry_price": 261.7918395996094,
+      "exit_price": 235.8790740966797,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-06-13 00:00:00",
+      "pnl": -949.8428514404297,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "QQQ",
+      "action": "sell",
+      "quantity": 32,
+      "entry_price": 294.0129699707031,
+      "exit_price": 269.231689453125,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-06-13 00:00:00",
+      "pnl": -810.2318046875,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "SPY",
+      "action": "sell",
+      "quantity": 25,
+      "entry_price": 379.7987060546875,
+      "exit_price": 348.92669677734375,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-06-16 00:00:00",
+      "pnl": -789.2465667724609,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "DIA",
+      "action": "sell",
+      "quantity": 31,
+      "entry_price": 302.0863952636719,
+      "exit_price": 282.173095703125,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-06-16 00:00:00",
+      "pnl": -634.8070183105468,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "GLD",
+      "action": "sell",
+      "quantity": 56,
+      "entry_price": 171.4199981689453,
+      "exit_price": 160.8300018310547,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-07-12 00:00:00",
+      "pnl": -611.0527551269531,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "EEM",
+      "action": "sell",
+      "quantity": 261,
+      "entry_price": 36.744449615478516,
+      "exit_price": 34.393898010253906,
+      "entry_date": "2022-05-10 00:00:00",
+      "exit_date": "2022-09-21 00:00:00",
+      "pnl": -631.4475837249756,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "NFLX",
+      "action": "buy",
+      "quantity": 31,
+      "price": 237.0500030517578,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.8186065662487738,
+      "strategy": "unknown",
+      "stop_loss": 225.1975028991699,
+      "take_profit": 272.60750350952145
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "buy",
+      "quantity": 92,
+      "price": 99.45404815673828,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 91.49772430419922,
+      "take_profit": 104.4267505645752
+    },
+    {
+      "symbol": "AMZN",
+      "action": "buy",
+      "quantity": 78,
+      "price": 117.30999755859375,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 107.92519775390626,
+      "take_profit": 123.17549743652344
+    },
+    {
+      "symbol": "META",
+      "action": "buy",
+      "quantity": 51,
+      "price": 141.9449462890625,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.7904435645892819,
+      "strategy": "unknown",
+      "stop_loss": 130.5893505859375,
+      "take_profit": 149.04219360351564
+    },
+    {
+      "symbol": "SPY",
+      "action": "buy",
+      "quantity": 25,
+      "price": 359.1384582519531,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 1.0,
+      "strategy": "unknown",
+      "stop_loss": 330.4073815917969,
+      "take_profit": 377.0953811645508
+    },
+    {
+      "symbol": "QQQ",
+      "action": "buy",
+      "quantity": 32,
+      "price": 274.8063049316406,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.9619821946677587,
+      "strategy": "unknown",
+      "stop_loss": 252.8218005371094,
+      "take_profit": 288.54662017822267
+    },
+    {
+      "symbol": "TLT",
+      "action": "buy",
+      "quantity": 96,
+      "price": 93.35282135009766,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.975854608889947,
+      "strategy": "unknown",
+      "stop_loss": 87.75165206909179,
+      "take_profit": 100.82104705810548
+    },
+    {
+      "symbol": "DIA",
+      "action": "buy",
+      "quantity": 30,
+      "price": 284.83135986328125,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.933129910857292,
+      "strategy": "unknown",
+      "stop_loss": 267.74147827148437,
+      "take_profit": 307.61786865234376
+    },
+    {
+      "symbol": "EEM",
+      "action": "buy",
+      "quantity": 248,
+      "price": 34.226890563964844,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.9249238699376731,
+      "strategy": "unknown",
+      "stop_loss": 32.17327713012695,
+      "take_profit": 36.96504180908203
+    },
+    {
+      "symbol": "IWM",
+      "action": "buy",
+      "quantity": 51,
+      "price": 163.99864196777344,
+      "timestamp": "2022-09-22 00:00:00",
+      "signal_strength": 0.9187507633618209,
+      "strategy": "unknown",
+      "stop_loss": 154.15872344970703,
+      "take_profit": 177.11853332519533
+    },
+    {
+      "symbol": "NFLX",
+      "action": "sell",
+      "quantity": 31,
+      "entry_price": 237.0500030517578,
+      "exit_price": 224.07000732421875,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-09-26 00:00:00",
+      "pnl": -416.2722080078125,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "META",
+      "action": "sell",
+      "quantity": 51,
+      "entry_price": 141.9449462890625,
+      "exit_price": 127.75243377685547,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-10-11 00:00:00",
+      "pnl": -736.8488863677978,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "EEM",
+      "action": "sell",
+      "quantity": 248,
+      "entry_price": 34.226890563964844,
+      "exit_price": 32.09292984008789,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-10-11 00:00:00",
+      "pnl": -545.140352722168,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "AMZN",
+      "action": "sell",
+      "quantity": 78,
+      "entry_price": 117.30999755859375,
+      "exit_price": 106.9000015258789,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-10-14 00:00:00",
+      "pnl": -828.6560907897949,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "TLT",
+      "action": "sell",
+      "quantity": 96,
+      "entry_price": 93.35282135009766,
+      "exit_price": 87.61997985839844,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-10-14 00:00:00",
+      "pnl": -567.1758193359375,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "DIA",
+      "action": "sell",
+      "quantity": 30,
+      "entry_price": 284.83135986328125,
+      "exit_price": 311.6134338378906,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-10-28 00:00:00",
+      "pnl": 784.7654132080078,
+      "reason": "take_profit"
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "sell",
+      "quantity": 92,
+      "entry_price": 99.45404815673828,
+      "exit_price": 89.85030364990234,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-11-01 00:00:00",
+      "pnl": -900.0769505004882,
+      "reason": "stop_loss"
+    },
+    {
+      "symbol": "SPY",
+      "action": "sell",
+      "quantity": 25,
+      "entry_price": 359.1384582519531,
+      "exit_price": 378.7835388183594,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-11-10 00:00:00",
+      "pnl": 472.1878372192383,
+      "reason": "take_profit"
+    },
+    {
+      "symbol": "IWM",
+      "action": "sell",
+      "quantity": 51,
+      "entry_price": 163.99864196777344,
+      "exit_price": 178.3029022216797,
+      "entry_date": "2022-09-22 00:00:00",
+      "exit_date": "2022-11-10 00:00:00",
+      "pnl": 711.3303769226075,
+      "reason": "take_profit"
+    }
+  ],
+  "strategy_performance": {
+    "momentum": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897128"
+    },
+    "mean_reversion": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897262"
+    },
+    "rsi_strategy": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897317"
+    },
+    "moving_average_crossover": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897365"
+    },
+    "bollinger_bands": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897418"
+    },
+    "pairs_trading": {
+      "total_signals": 0,
+      "success_rate": 0.0,
+      "total_return": 0.0,
+      "sharpe_ratio": 0.0,
+      "max_drawdown": 0.0,
+      "weight": 0.16666666666666666,
+      "last_updated": "2025-11-08 15:12:16.897467"
+    }
+  }
+}

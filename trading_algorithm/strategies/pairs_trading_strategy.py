@@ -81,6 +81,12 @@ class PairsTradingStrategy(BaseStrategy):
         # Get the latest date from data
         latest_date = max(df.index[-1] for df in data.values())
         
+        # Normalize both dates to naive datetime for comparison
+        if hasattr(latest_date, 'tzinfo') and latest_date.tzinfo is not None:
+            latest_date = latest_date.replace(tzinfo=None)
+        if hasattr(self.last_rebalance_date, 'tzinfo') and self.last_rebalance_date.tzinfo is not None:
+            self.last_rebalance_date = self.last_rebalance_date.replace(tzinfo=None)
+        
         # Check if enough time has passed since last rebalance
         days_since_rebalance = (latest_date - self.last_rebalance_date).days
         
@@ -110,7 +116,13 @@ class PairsTradingStrategy(BaseStrategy):
         # Select best pairs
         self.pairs_data = self._select_best_pairs(pairs_metrics)
         self.active_pairs = list(self.pairs_data.keys())
-        self.last_rebalance_date = max(df.index[-1] for df in data.values())
+        latest_date = max(df.index[-1] for df in data.values())
+        
+        # Normalize to naive datetime
+        if hasattr(latest_date, 'tzinfo') and latest_date.tzinfo is not None:
+            latest_date = latest_date.replace(tzinfo=None)
+        
+        self.last_rebalance_date = latest_date
         
         logger.info(f"Updated to {len(self.active_pairs)} active pairs")
     

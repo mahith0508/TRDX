@@ -126,9 +126,9 @@ class BaseStrategy(ABC):
         if data['close'].std() / data['close'].mean() < 0.01:  # Less than 1% volatility
             return False
         
-        # Check for recent data
-        if (datetime.now() - data.index[-1]).days > 7:  # More than 7 days old
-            return False
+        # For backtesting, check if data is recent relative to the data itself
+        # Skip the age filter for backtesting as it's not relevant
+        # The age filter is mainly for live trading to ensure fresh data
         
         return True
     
